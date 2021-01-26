@@ -10,4 +10,18 @@ import UIKit
 
 class SearchModel {
     
+    //画面分岐
+    enum State: Int{
+        case start = 1
+        case goal = 2
+        
+        var text: String{
+            switch self {
+            case .start:
+                return "出発地"
+            case .goal:
+                return "到着地"
+            }
+        }
+    }
 }

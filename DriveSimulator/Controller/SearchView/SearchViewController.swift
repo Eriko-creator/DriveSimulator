@@ -12,12 +12,12 @@ class SearchViewController: UIViewController {
     let myView = SearchView()
     var startAddress = ""{
         didSet{
-            myView.startTextLabel.text = startAddress
+            myView.textLabel[0].text = startAddress
         }
     }
     var goalAddress = ""{
         didSet{
-            myView.goalTextLabel.text = goalAddress
+            myView.textLabel[1].text = goalAddress
         }
     }
     

@@ -16,12 +16,9 @@ class SearchView: XibView{
     
     var delegate: SearchViewDelegate?
     
-    @IBOutlet weak var startTextLabel: UILabel!
-    @IBOutlet weak var goalTextLabel: UILabel!
     
-    @IBOutlet var startLabelTapGesture: UITapGestureRecognizer!
+    @IBOutlet var textLabel: [UILabel]!
     
-    @IBOutlet var goalLabelTapGesture: UITapGestureRecognizer!
     @IBOutlet weak var addViaButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
     

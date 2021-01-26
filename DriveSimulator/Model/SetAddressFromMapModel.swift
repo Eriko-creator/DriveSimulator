@@ -14,21 +14,6 @@ protocol SetAddressFromMapViewDelegate {
 
 final class SetAddressFromMapModel {
     
-    //SetAddressFromMapViewの画面分岐
-    enum State: Int{
-        case start = 1
-        case goal = 2
-        
-        var text: String{
-            switch self {
-            case .start:
-                return "出発地"
-            case .goal:
-                return "到着地"
-            }
-        }
-    }
-    
     struct Point{
         var marker: GMSMarker
         var mapView: GMSMapView
@@ -109,7 +94,7 @@ final class SetAddressFromMapModel {
     //infoWindowをタップした時のアラート
     func showAlert(tag:Int, infoWindow:InfoWindowView)->UIAlertController{
         
-        let state = State(rawValue: tag)!
+        let state = SearchModel.State(rawValue: tag)!
         let alert = UIAlertController(title: "\(state.text)をここに決定しますか？", message: "\(infoWindow.nameLabel.text!)", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default) { [self](action) in
             alert.dismiss(animated: true, completion: nil)

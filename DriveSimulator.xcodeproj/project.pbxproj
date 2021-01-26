@@ -34,6 +34,10 @@
 		34B2ED0D25BF280D000682B7 /* SetAddressFromMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */; };
 		34B2ED1425BF2822000682B7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED1225BF2822000682B7 /* SearchViewController.swift */; };
 		34B2ED1525BF2822000682B7 /* SetAddressFromMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED1325BF2822000682B7 /* SetAddressFromMapViewController.swift */; };
+		34B2ED1D25BFC538000682B7 /* SetAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED1C25BFC538000682B7 /* SetAddressView.swift */; };
+		34B2ED2225BFC552000682B7 /* SetAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B2ED2125BFC552000682B7 /* SetAddressView.xib */; };
+		34B2ED3225BFC9AB000682B7 /* AutoCompleteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED3125BFC9AB000682B7 /* AutoCompleteTableView.swift */; };
+		34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */; };
 		5FF561C793FC9F5F028FB6C4 /* Pods_DriveSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344DC45E12A35E6812A2E247 /* Pods_DriveSimulator.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAddressFromMapModel.swift; sourceTree = "<group>"; };
 		34B2ED1225BF2822000682B7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		34B2ED1325BF2822000682B7 /* SetAddressFromMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAddressFromMapViewController.swift; sourceTree = "<group>"; };
+		34B2ED1C25BFC538000682B7 /* SetAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddressView.swift; sourceTree = "<group>"; };
+		34B2ED2125BFC552000682B7 /* SetAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetAddressView.xib; sourceTree = "<group>"; };
+		34B2ED3125BFC9AB000682B7 /* AutoCompleteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteTableView.swift; sourceTree = "<group>"; };
+		34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddressViewController.swift; sourceTree = "<group>"; };
 		4732EE64C95089936172317E /* Pods-DriveSimulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator.debug.xcconfig"; path = "Target Support Files/Pods-DriveSimulator/Pods-DriveSimulator.debug.xcconfig"; sourceTree = "<group>"; };
 		4A508FC46917B5F5B6DDA310 /* Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig"; path = "Target Support Files/Pods-DriveSimulator-DriveSimulatorUITests/Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9C35E1566CB15015481E7E48 /* Pods-DriveSimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator.release.xcconfig"; path = "Target Support Files/Pods-DriveSimulator/Pods-DriveSimulator.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,10 +205,10 @@
 			children = (
 				34B2EC7025BF22A9000682B7 /* Main.storyboard */,
 				34B2EC7325BF22AC000682B7 /* Assets.xcassets */,
-				34B2ECE625BF270E000682B7 /* New Group */,
 				34B2ECCB25BF25F3000682B7 /* XibView.swift */,
 				34B2ECDA25BF26A6000682B7 /* SearchView */,
 				34B2ECDB25BF26B6000682B7 /* SetAddressFromMapView */,
+				34B2ECE625BF270E000682B7 /* SetAddressView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,8 +234,8 @@
 		34B2ECDA25BF26A6000682B7 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				34B2ECD025BF2687000682B7 /* SearchView.xib */,
 				34B2ECD525BF269E000682B7 /* SearchView.swift */,
+				34B2ECD025BF2687000682B7 /* SearchView.xib */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -243,11 +251,14 @@
 			path = SetAddressFromMapView;
 			sourceTree = "<group>";
 		};
-		34B2ECE625BF270E000682B7 /* New Group */ = {
+		34B2ECE625BF270E000682B7 /* SetAddressView */ = {
 			isa = PBXGroup;
 			children = (
+				34B2ED1C25BFC538000682B7 /* SetAddressView.swift */,
+				34B2ED2125BFC552000682B7 /* SetAddressView.xib */,
+				34B2ED3125BFC9AB000682B7 /* AutoCompleteTableView.swift */,
 			);
-			path = "New Group";
+			path = SetAddressView;
 			sourceTree = "<group>";
 		};
 		34B2ECF125BF279D000682B7 /* Common */ = {
@@ -274,6 +285,7 @@
 			children = (
 				34B2ED1225BF2822000682B7 /* SearchViewController.swift */,
 				34B2ED1325BF2822000682B7 /* SetAddressFromMapViewController.swift */,
+				34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -401,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B2ED2225BFC552000682B7 /* SetAddressView.xib in Resources */,
 				34B2EC7725BF22AC000682B7 /* LaunchScreen.storyboard in Resources */,
 				34B2ECED25BF272F000682B7 /* SetAddressFromMapView.xib in Resources */,
 				34B2ECD125BF2687000682B7 /* SearchView.xib in Resources */,
@@ -574,8 +587,11 @@
 				34B2ECF925BF27C5000682B7 /* PlaceDetails.swift in Sources */,
 				34B2ED1525BF2822000682B7 /* SetAddressFromMapViewController.swift in Sources */,
 				34B2EC6F25BF22A9000682B7 /* ViewController.swift in Sources */,
+				34B2ED1D25BFC538000682B7 /* SetAddressView.swift in Sources */,
 				34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */,
+				34B2ED3225BFC9AB000682B7 /* AutoCompleteTableView.swift in Sources */,
 				34B2ED0325BF27D7000682B7 /* MapSettings.swift in Sources */,
+				34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */,
 				34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */,
 				34B2ECCC25BF25F3000682B7 /* XibView.swift in Sources */,
 				34B2ECDD25BF26F4000682B7 /* InfoWindowView.swift in Sources */,

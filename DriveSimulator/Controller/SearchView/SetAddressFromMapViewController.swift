@@ -15,7 +15,7 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
     let infoWindow = InfoWindowView()
     let marker = GMSMarker()
     
-    //出発地を選択する画面か到着地を選択する画面か値を受け取る
+    //出発地を選択する画面か到着地を選択する画面かの値を受け取る
     var tag:Int = 1
 
     override func loadView() {
@@ -27,7 +27,7 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
         super.viewDidLoad()
         
         //出発地か到着地か判定
-        let state = SetAddressFromMapModel.State(rawValue: tag)!
+        let state = SearchModel.State(rawValue: tag)!
         myView.labelText = state.text
         //searchBarのデリゲートを設定
         myView.searchBar.delegate = self

@@ -9,6 +9,7 @@ target 'DriveSimulator' do
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Alamofire'
+pod 'SegementSlide', '3.0.1'
 
   target 'DriveSimulatorTests' do
     inherit! :search_paths
