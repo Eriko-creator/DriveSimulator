@@ -99,12 +99,8 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
 extension SetAddressFromMapViewController: SetAddressFromMapViewDelegate{
     //出発地/到着地の名前をSearchViewに渡して画面を閉じる
     func closeViewController(address:String, tag:Int) {
-        let preVC = self.presentingViewController as! SearchViewController
-        if tag == 1{
-            preVC.startAddress = address
-        }else if tag == 2{
-            preVC.goalAddress = address
-        }
+        let state = SearchModel.State(rawValue: tag)
+        state?.setAddress(address: address, VC: self)
         dismiss(animated: true, completion: nil)
     }
 }

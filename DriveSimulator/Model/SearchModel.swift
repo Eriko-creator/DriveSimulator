@@ -23,5 +23,14 @@ class SearchModel {
                 return "到着地"
             }
         }
+        func setAddress(address: String, VC:UIViewController){
+            let preVC = VC.presentingViewController as! SearchViewController
+            switch self{
+            case .start:
+                preVC.startAddress = address
+            case .goal:
+                preVC.goalAddress = address
+            }
+        }
     }
 }
