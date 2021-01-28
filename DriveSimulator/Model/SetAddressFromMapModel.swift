@@ -48,7 +48,7 @@ final class SetAddressFromMapModel {
     
     public func moveToPlace(name:String, mapView:GMSMapView){
         
-        googleMapAPI.getGeometry(address: name) { [self] (geometry) in
+        googleMapAPI.getGeometry(address: name) {[unowned self](geometry) in
             if let geometry = geometry{
                 guard let results = geometry.results.first else {return}
                 
@@ -60,7 +60,7 @@ final class SetAddressFromMapModel {
     //POI地点のInfoWindow情報を取得し、表示する
     public func showPOIinfoWindow(point:Point){
         
-        googleMapAPI.getPlaceDetails(placeID: point.placeID) { [self](placeDetails) in
+        googleMapAPI.getPlaceDetails(placeID: point.placeID) { [unowned self](placeDetails) in
             print(placeDetails as Any)
             //画像がない場合
             if let placeDetails = placeDetails{

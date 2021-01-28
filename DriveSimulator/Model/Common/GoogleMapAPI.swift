@@ -15,7 +15,7 @@ class GoogleMapAPI {
     //地点名から緯度経度を取得するメソッド
     func getGeometry(address: String, completion:@escaping((Geometry?) -> Void)){
        
-        let baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?language=ja&address=\(address)&key=\(String(describing: APIKey))"
+        let baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?language=ja&address=\(address)&key=\(APIKey!)"
        let url = baseUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
        print(url)
        
