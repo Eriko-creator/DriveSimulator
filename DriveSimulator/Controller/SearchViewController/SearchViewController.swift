@@ -37,12 +37,17 @@ class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewDelegate{
     
     func presentSetAddressFromMapView(tag: Int) {
-        
         let VC = SetAddressFromMapViewController()
         //tagで表示内容変更
         VC.tag = tag
-
         //画面遷移
+        present(VC, animated: true, completion: nil)
+    }
+    
+    func presentSetAddressView(tag: Int){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "SetAddress", bundle: nil)
+        let VC = storyBoard.instantiateViewController(withIdentifier: "setAddress") as! SetAddressViewController
+        VC.tag = tag
         present(VC, animated: true, completion: nil)
     }
 }

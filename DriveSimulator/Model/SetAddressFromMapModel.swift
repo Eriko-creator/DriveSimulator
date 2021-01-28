@@ -40,7 +40,7 @@ final class SetAddressFromMapModel {
     
     func setMarkerOnMap(point:Point, info:Info){
         //InfoWindowの内容を変更する
-                info.setInfo(infoWindow: point.infoWindow)
+        info.setInfo(infoWindow: point.infoWindow)
         //タップ地点を中央にしてカメラを動かし、ピンを立てる
         mapSettings.addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
         

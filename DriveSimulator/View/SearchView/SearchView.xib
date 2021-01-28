@@ -18,8 +18,8 @@
                 <outlet property="setDateButton" destination="hde-a8-VTJ" id="fwi-Jy-Ws8"/>
                 <outlet property="showSavedRouteButton" destination="HTR-LI-xs0" id="Rs3-vX-o4p"/>
                 <outlet property="stateSegmentedControl" destination="cyl-In-Nif" id="l9h-Iu-DLk"/>
-                <outletCollection property="textLabel" destination="Jf4-ZG-PYS" collectionClass="NSMutableArray" id="a91-pQ-Cmr"/>
-                <outletCollection property="textLabel" destination="aPb-DS-eoA" collectionClass="NSMutableArray" id="uJf-og-lE1"/>
+                <outletCollection property="textLabel" destination="Jf4-ZG-PYS" collectionClass="NSMutableArray" id="yPI-1A-qcH"/>
+                <outletCollection property="textLabel" destination="aPb-DS-eoA" collectionClass="NSMutableArray" id="s1n-hG-hV7"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -98,6 +98,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="OHz-wd-Dp2" appends="YES" id="vLg-eV-sya"/>
+                    </connections>
                 </label>
                 <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPb-DS-eoA">
                     <rect key="frame" x="103" y="230" width="216" height="38"/>
@@ -106,6 +109,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="gXf-5P-aZr" appends="YES" id="ejy-ot-8X7"/>
+                    </connections>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="出発地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmM-o0-BO3">
                     <rect key="frame" x="33" y="154" width="62" height="36"/>
@@ -127,7 +133,16 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </view>
-        <tapGestureRecognizer id="YmM-7T-Fgr"/>
+        <tapGestureRecognizer id="OHz-wd-Dp2">
+            <connections>
+                <action selector="labelTapGestureRecognizer:" destination="-1" id="Szt-x9-UNS"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="gXf-5P-aZr">
+            <connections>
+                <action selector="labelTapGestureRecognizer:" destination="-1" id="8wH-eZ-52O"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

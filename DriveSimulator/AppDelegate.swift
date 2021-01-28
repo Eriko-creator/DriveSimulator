@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if let APIKey = KeyManager().getValue(key: "GoogleMapAPI") as? String{
             GMSServices.provideAPIKey(APIKey)
+            GMSPlacesClient.provideAPIKey(APIKey)
         }
         return true
     }

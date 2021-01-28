@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchViewDelegate {
     func presentSetAddressFromMapView(tag: Int)
+    func presentSetAddressView(tag:Int)
 }
 
 class SearchView: XibView{
@@ -18,6 +19,12 @@ class SearchView: XibView{
     
     
     @IBOutlet var textLabel: [UILabel]!
+    
+    @IBAction func labelTapGestureRecognizer(_ sender: Any) {
+        let TGR = sender as! UITapGestureRecognizer
+        let label = TGR.view as! UILabel
+        delegate?.presentSetAddressView(tag: label.tag)
+    }
     
     @IBOutlet weak var addViaButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
