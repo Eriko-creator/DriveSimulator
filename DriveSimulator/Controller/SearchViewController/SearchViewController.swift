@@ -10,16 +10,6 @@ import UIKit
 class SearchViewController: UIViewController {
 
     let myView = SearchView()
-    var startAddress = ""{
-        didSet{
-            myView.textLabel[0].text = startAddress
-        }
-    }
-    var goalAddress = ""{
-        didSet{
-            myView.textLabel[1].text = goalAddress
-        }
-    }
     
     override func loadView() {
         super.loadView()
@@ -29,25 +19,54 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         myView.delegate = self
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getPlaceName()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    private func getPlaceName(){
+        
+        NotificationCenter.default.addObserver(forName: .selectedStartPlaceName, object: nil, queue: nil) { (notification) in
+            guard let startPlaceName = notification.userInfo?["selectedStartPlaceName"] as? String else {return}
+            self.myView.textLabel[0].text = startPlaceName
+        }
+        
+        NotificationCenter.default.addObserver(forName: .selectedGoalPlaceName, object: nil, queue: nil) { (notification) in
+            guard let goalPlaceName = notification.userInfo?["selectedGoalPlaceName"] as? String else {return}
+            self.myView.textLabel[1].text = goalPlaceName
+        }
         
     }
-
 }
 
 extension SearchViewController: SearchViewDelegate{
     
     func presentSetAddressFromMapView(tag: Int) {
-        let VC = SetAddressFromMapViewController()
-        //tagで表示内容変更
-        VC.tag = tag
+        
+        //シングルトン　値を格納
+        let placeAction = PlaceAction.shared
+        guard let state = Action.State(rawValue: tag) else {return}
+        placeAction.action = Action.select(state: state)
         //画面遷移
+        let VC = SetAddressFromMapViewController()
         present(VC, animated: true, completion: nil)
     }
     
     func presentSetAddressView(tag: Int){
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "SetAddress", bundle: nil)
-        let VC = storyBoard.instantiateViewController(withIdentifier: "setAddress") as! SetAddressViewController
-        VC.tag = tag
+        guard let VC = storyBoard.instantiateViewController(withIdentifier: "setAddress") as? SetAddressViewController,
+              let state = Action.State(rawValue: tag) else {return}
+        let placeAction = PlaceAction.shared
+        placeAction.action = Action.select(state: state)
+        
         present(VC, animated: true, completion: nil)
     }
 }
