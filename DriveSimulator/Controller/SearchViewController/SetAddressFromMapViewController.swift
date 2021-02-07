@@ -10,13 +10,11 @@ import GoogleMaps
 
 class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
     
-    let myView = SetAddressFromMapView()
-    let model = SetAddressFromMapModel()
+    private let myView = SetAddressFromMapView()
+    private let model = SetAddressFromMapModel()
     let infoWindow = InfoWindowView()
     let marker = GMSMarker()
-    
-    //出発地を選択する画面か到着地を選択する画面かの値を受け取る
-    var tag:Int = 1
+    let placeAction = PlaceAction.shared
 
     override func loadView() {
         super.loadView()
@@ -26,9 +24,6 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //出発地か到着地か判定
-        let state = SearchModel.State(rawValue: tag)!
-        myView.labelText = state.text
         //searchBarのデリゲートを設定
         myView.searchBar.delegate = self
         model.delegate = self
@@ -57,7 +52,6 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
     
     //POI地点をタップした時
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
-        mapView.clear()
         //POI上にInfoWindowを表示
         let POIMarker = GMSMarker()
         let point = SetAddressFromMapModel.Point(marker: POIMarker, mapView: mapView, coordinate: location, placeID: placeID, infoWindow: infoWindow)
@@ -66,17 +60,15 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
     }
     //地図上をタップした時
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        
         //タップした場所にマーカーを表示
         let point = SetAddressFromMapModel.Point(marker: marker, mapView: mapView, coordinate: coordinate, placeID: nil, infoWindow: infoWindow)
-        let info = SetAddressFromMapModel.Info(name: "\(coordinate.latitude),\(coordinate.longitude)")
-        model.setMarkerOnMap(point: point, info: info)
+        model.setMarkerOnMap(point: point)
     }
     
-    //アラートを表示
+    //infoWindowをタップした時
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        let alert = model.showAlert(tag: tag, infoWindow: infoWindow)
-        print(infoWindow.nameLabel.text!)
+        //アラートを表示
+        let alert = model.showAlert(infoWindow: infoWindow, coordinate: marker.position)
         present(alert, animated: true, completion: nil)
     }
     
@@ -97,10 +89,8 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
 }
 
 extension SetAddressFromMapViewController: SetAddressFromMapViewDelegate{
-    //出発地/到着地の名前をSearchViewに渡して画面を閉じる
-    func closeViewController(address:String, tag:Int) {
-        let state = SearchModel.State(rawValue: tag)
-        state?.setAddress(address: address, VC: self)
+    //画面を閉じる
+    func closeViewController() {
         dismiss(animated: true, completion: nil)
     }
 }

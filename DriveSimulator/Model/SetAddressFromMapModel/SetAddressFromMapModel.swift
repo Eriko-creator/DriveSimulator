@@ -7,18 +7,19 @@
 
 import Foundation
 import GoogleMaps
+import GooglePlaces
 
-protocol SetAddressFromMapViewDelegate {
-    func closeViewController(address:String, tag:Int)
+protocol SetAddressFromMapViewDelegate: class {
+    func closeViewController()
 }
 
-final class SetAddressFromMapModel {
+final class SetAddressFromMapModel: MapSettings {
     
     struct Point{
         var marker: GMSMarker
         var mapView: GMSMapView
         var coordinate: CLLocationCoordinate2D
-        var placeID: String!
+        var placeID: String?
         var infoWindow: InfoWindowView
     }
 
@@ -35,24 +36,24 @@ final class SetAddressFromMapModel {
     }
     
     let googleMapAPI = GoogleMapAPI()
-    let mapSettings = MapSettings()
-    var delegate: SetAddressFromMapViewDelegate?
+    weak var delegate: SetAddressFromMapViewDelegate?
+    let placeAction = PlaceAction.shared
     
     func setMarkerOnMap(point:Point, info:Info){
         //InfoWindowの内容を変更する
         info.setInfo(infoWindow: point.infoWindow)
         //タップ地点を中央にしてカメラを動かし、ピンを立てる
-        mapSettings.addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
+        addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
         
     }
     
-    public func moveToPlace(name:String, mapView:GMSMapView){
+    func moveToPlace(name:String, mapView:GMSMapView){
         
         googleMapAPI.getGeometry(address: name) {[unowned self](geometry) in
             if let geometry = geometry{
                 guard let results = geometry.results.first else {return}
                 
-                mapSettings.updateCameraView(lat:results.geometry.location.lat , lng: results.geometry.location.lng, mapView: mapView, zoom:15)
+                updateCameraView(lat:results.geometry.location.lat , lng: results.geometry.location.lng, mapView: mapView, zoom:15)
             }
         }
     }
@@ -87,18 +88,24 @@ final class SetAddressFromMapModel {
         point.marker.map = point.mapView
         point.mapView.selectedMarker = point.marker
         //POIを中心にしてカメラを移動させる
-        mapSettings.updateCameraView(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView, zoom: 20)
+        updateCameraView(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView, zoom: 20)
 
     }
     
     //infoWindowをタップした時のアラート
-    func showAlert(tag:Int, infoWindow:InfoWindowView)->UIAlertController{
+    func showAlert(infoWindow:InfoWindowView, coordinate: CLLocationCoordinate2D)->UIAlertController{
         
-        let state = SearchModel.State(rawValue: tag)!
-        let alert = UIAlertController(title: "\(state.text)をここに決定しますか？", message: "\(infoWindow.nameLabel.text!)", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default) { [self](action) in
+        let alert = UIAlertController(title: "\(placeAction.action?.alertTitle ?? "")", message: "\(infoWindow.nameLabel.text!)", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default) { [unowned self](alertAction) in
+            
             alert.dismiss(animated: true, completion: nil)
-            delegate?.closeViewController(address: infoWindow.nameLabel.text!, tag: tag)
+            
+            //地名、緯度経度を通知、保存する
+            let place = Place(placeName: infoWindow.nameLabel.text ?? "", lat: coordinate.latitude, lng: coordinate.longitude)
+            placeAction.setPlaceName(place: place)
+            
+            //画面を閉じる
+            delegate?.closeViewController()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             alert.dismiss(animated: true, completion: nil)
@@ -108,4 +115,5 @@ final class SetAddressFromMapModel {
         
         return alert
     }
+    
 }
