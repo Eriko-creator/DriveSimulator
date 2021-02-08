@@ -12,7 +12,8 @@ class AutoCompleteViewController: UIViewController {
 
     private var tableView: UITableView!
     private var tableDataSource: GMSAutocompleteTableDataSource!
-    private var tag: Int = 1
+    private let placeAction = PlaceAction.shared
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +28,6 @@ class AutoCompleteViewController: UIViewController {
         view.addSubview(tableView)
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //出発地か到着地かのtagを取得
-        let parent = self.parent as! SetAddressViewController
-        print(parent.tag)
-        tag = parent.tag
-    }
-
 }
 extension AutoCompleteViewController: SetAddressViewControllerDelegate{
     func startAutoComplete(text: String) {
@@ -58,12 +50,10 @@ extension AutoCompleteViewController: GMSAutocompleteTableDataSourceDelegate{
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
-        //SearchViewのテキストラベルに反映させて画面を閉じる
-        let state = SearchModel.State(rawValue: tag)
-        state?.setAddress(address: place.name!, VC: self)
+        //処理を行う
+        let place = Place(placeName: place.name ?? "", lat: place.coordinate.latitude, lng: place.coordinate.longitude)
+        placeAction.setPlaceName(place: place)
         dismiss(animated: true, completion: nil)
-        
-        print("Place name: \(place.name!)")
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didFailAutocompleteWithError error: Error) {

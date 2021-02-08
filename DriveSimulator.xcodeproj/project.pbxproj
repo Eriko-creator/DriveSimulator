@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		11FBB0E80DB786EA08EA678F /* Pods_DriveSimulator_DriveSimulatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F9866B154A1D5DF50F88A /* Pods_DriveSimulator_DriveSimulatorUITests.framework */; };
 		2F703DB090FDF1D76443CBE8 /* Pods_DriveSimulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52CAD1C0A75B5ED456F10B7 /* Pods_DriveSimulatorTests.framework */; };
+		345ABB8525D11DF200A37CED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8425D11DF200A37CED /* Button.swift */; };
+		345ABB8A25D11DFE00A37CED /* PlaceNameActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */; };
+		345ABB8F25D11E0700A37CED /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8E25D11E0700A37CED /* Realm.swift */; };
+		345ABB9425D11E1100A37CED /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB9325D11E1100A37CED /* Action.swift */; };
+		345ABBBB25D1243000A37CED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBBA25D1243000A37CED /* PageViewController.swift */; };
+		345ABBC325D1244000A37CED /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBC225D1244000A37CED /* HistoryTableViewController.swift */; };
+		345ABBC825D1244D00A37CED /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBC725D1244D00A37CED /* MyLocationViewController.swift */; };
+		345ABBCD25D1245900A37CED /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBCC25D1245900A37CED /* FavoriteTableViewController.swift */; };
+		345ABBD325D1247C00A37CED /* PageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBD225D1247C00A37CED /* PageViewDataSource.swift */; };
 		34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */; };
 		34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6C25BF22A9000682B7 /* SceneDelegate.swift */; };
 		34B2EC6F25BF22A9000682B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6E25BF22A9000682B7 /* ViewController.swift */; };
@@ -37,11 +46,7 @@
 		34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */; };
 		34B2ED6225C12999000682B7 /* SetAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B2ED6125C12998000682B7 /* SetAddress.storyboard */; };
 		34B2ED6725C12BA5000682B7 /* AutoCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED6625C12BA5000682B7 /* AutoCompleteViewController.swift */; };
-		34B2ED6C25C12D86000682B7 /* SelectAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B2ED6B25C12D86000682B7 /* SelectAddressView.xib */; };
-		34B2ED7425C12FB4000682B7 /* SelectAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED7325C12FB4000682B7 /* SelectAddressView.swift */; };
 		34B2ED7F25C13BE8000682B7 /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED7E25C13BE8000682B7 /* SelectAddressViewController.swift */; };
-		34B2ED9425C2807D000682B7 /* SelectFromHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B2ED9325C2807D000682B7 /* SelectFromHistoryCell.xib */; };
-		34B2ED9A25C28369000682B7 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2ED9925C28369000682B7 /* TableViewDataSource.swift */; };
 		5FF561C793FC9F5F028FB6C4 /* Pods_DriveSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344DC45E12A35E6812A2E247 /* Pods_DriveSimulator.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +71,15 @@
 		023FB49BFEE05BCED94D67D9 /* Pods-DriveSimulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulatorTests.release.xcconfig"; path = "Target Support Files/Pods-DriveSimulatorTests/Pods-DriveSimulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F26553BF7C633D1A359C7C2 /* Pods-DriveSimulator-DriveSimulatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator-DriveSimulatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-DriveSimulator-DriveSimulatorUITests/Pods-DriveSimulator-DriveSimulatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		344DC45E12A35E6812A2E247 /* Pods_DriveSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		345ABB8425D11DF200A37CED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = DriveSimulator/Model/Common/Button.swift; sourceTree = SOURCE_ROOT; };
+		345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceNameActionModel.swift; path = DriveSimulator/Model/Common/PlaceNameActionModel.swift; sourceTree = SOURCE_ROOT; };
+		345ABB8E25D11E0700A37CED /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Realm.swift; path = DriveSimulator/Model/Common/Realm.swift; sourceTree = SOURCE_ROOT; };
+		345ABB9325D11E1100A37CED /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DriveSimulator/Model/Common/Action.swift; sourceTree = SOURCE_ROOT; };
+		345ABBBA25D1243000A37CED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		345ABBC225D1244000A37CED /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		345ABBC725D1244D00A37CED /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
+		345ABBCC25D1245900A37CED /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		345ABBD225D1247C00A37CED /* PageViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewDataSource.swift; sourceTree = "<group>"; };
 		34B2EC6725BF22A9000682B7 /* DriveSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34B2EC6C25BF22A9000682B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,18 +107,14 @@
 		34B2ECF825BF27C5000682B7 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		34B2ECFD25BF27D0000682B7 /* GoogleMapAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapAPI.swift; sourceTree = "<group>"; };
 		34B2ED0225BF27D7000682B7 /* MapSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSettings.swift; sourceTree = "<group>"; };
-		34B2ED0725BF2801000682B7 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
-		34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAddressFromMapModel.swift; sourceTree = "<group>"; };
+		34B2ED0725BF2801000682B7 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchModel.swift; path = SearchModel/SearchModel.swift; sourceTree = "<group>"; };
+		34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetAddressFromMapModel.swift; path = SetAddressFromMapModel/SetAddressFromMapModel.swift; sourceTree = "<group>"; };
 		34B2ED1225BF2822000682B7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		34B2ED1325BF2822000682B7 /* SetAddressFromMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAddressFromMapViewController.swift; sourceTree = "<group>"; };
 		34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddressViewController.swift; sourceTree = "<group>"; };
 		34B2ED6125C12998000682B7 /* SetAddress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetAddress.storyboard; sourceTree = "<group>"; };
 		34B2ED6625C12BA5000682B7 /* AutoCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteViewController.swift; sourceTree = "<group>"; };
-		34B2ED6B25C12D86000682B7 /* SelectAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAddressView.xib; sourceTree = "<group>"; };
-		34B2ED7325C12FB4000682B7 /* SelectAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressView.swift; sourceTree = "<group>"; };
 		34B2ED7E25C13BE8000682B7 /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
-		34B2ED9325C2807D000682B7 /* SelectFromHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFromHistoryCell.xib; sourceTree = "<group>"; };
-		34B2ED9925C28369000682B7 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		4732EE64C95089936172317E /* Pods-DriveSimulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator.debug.xcconfig"; path = "Target Support Files/Pods-DriveSimulator/Pods-DriveSimulator.debug.xcconfig"; sourceTree = "<group>"; };
 		4A508FC46917B5F5B6DDA310 /* Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig"; path = "Target Support Files/Pods-DriveSimulator-DriveSimulatorUITests/Pods-DriveSimulator-DriveSimulatorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9C35E1566CB15015481E7E48 /* Pods-DriveSimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveSimulator.release.xcconfig"; path = "Target Support Files/Pods-DriveSimulator/Pods-DriveSimulator.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +159,25 @@
 				C52CAD1C0A75B5ED456F10B7 /* Pods_DriveSimulatorTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		345ABBB925D1241600A37CED /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				345ABBBA25D1243000A37CED /* PageViewController.swift */,
+				345ABBC225D1244000A37CED /* HistoryTableViewController.swift */,
+				345ABBC725D1244D00A37CED /* MyLocationViewController.swift */,
+				345ABBCC25D1245900A37CED /* FavoriteTableViewController.swift */,
+			);
+			path = PageViewController;
+			sourceTree = "<group>";
+		};
+		345ABBD125D1246600A37CED /* PageViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				345ABBD225D1247C00A37CED /* PageViewDataSource.swift */,
+			);
+			path = PageViewModel;
 			sourceTree = "<group>";
 		};
 		34B2EC5E25BF22A9000682B7 = {
@@ -233,10 +262,10 @@
 		34B2ECB225BF2448000682B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				345ABBD125D1246600A37CED /* PageViewModel */,
 				34B2ED0725BF2801000682B7 /* SearchModel.swift */,
 				34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */,
 				34B2ECF125BF279D000682B7 /* Common */,
-				34B2ED9925C28369000682B7 /* TableViewDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,9 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				34B2ED6125C12998000682B7 /* SetAddress.storyboard */,
-				34B2ED7325C12FB4000682B7 /* SelectAddressView.swift */,
-				34B2ED6B25C12D86000682B7 /* SelectAddressView.xib */,
-				34B2ED9825C28169000682B7 /* SelectFromHistory */,
 			);
 			path = SetAddressView;
 			sourceTree = "<group>";
@@ -277,6 +303,10 @@
 			children = (
 				34B2ECFD25BF27D0000682B7 /* GoogleMapAPI.swift */,
 				34B2ED0225BF27D7000682B7 /* MapSettings.swift */,
+				345ABB8425D11DF200A37CED /* Button.swift */,
+				345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */,
+				345ABB8E25D11E0700A37CED /* Realm.swift */,
+				345ABB9325D11E1100A37CED /* Action.swift */,
 				34B2ECF225BF27A9000682B7 /* JsonExport */,
 			);
 			path = Common;
@@ -306,16 +336,9 @@
 				34B2ED3625BFF379000682B7 /* SetAddressViewController.swift */,
 				34B2ED7E25C13BE8000682B7 /* SelectAddressViewController.swift */,
 				34B2ED6625C12BA5000682B7 /* AutoCompleteViewController.swift */,
+				345ABBB925D1241600A37CED /* PageViewController */,
 			);
 			path = SetAddressViewController;
-			sourceTree = "<group>";
-		};
-		34B2ED9825C28169000682B7 /* SelectFromHistory */ = {
-			isa = PBXGroup;
-			children = (
-				34B2ED9325C2807D000682B7 /* SelectFromHistoryCell.xib */,
-			);
-			path = SelectFromHistory;
 			sourceTree = "<group>";
 		};
 		B18FA1A265DA1F70384A65FA /* Pods */ = {
@@ -446,10 +469,8 @@
 				34B2ECED25BF272F000682B7 /* SetAddressFromMapView.xib in Resources */,
 				34B2ECD125BF2687000682B7 /* SearchView.xib in Resources */,
 				34B2ECA725BF2379000682B7 /* APIKey.plist in Resources */,
-				34B2ED9425C2807D000682B7 /* SelectFromHistoryCell.xib in Resources */,
 				34B2EC7425BF22AC000682B7 /* Assets.xcassets in Resources */,
 				34B2ECE225BF26FC000682B7 /* InfoWindowView.xib in Resources */,
-				34B2ED6C25C12D86000682B7 /* SelectAddressView.xib in Resources */,
 				34B2EC7225BF22A9000682B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,20 +640,27 @@
 				34B2ED1525BF2822000682B7 /* SetAddressFromMapViewController.swift in Sources */,
 				34B2EC6F25BF22A9000682B7 /* ViewController.swift in Sources */,
 				34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */,
-				34B2ED9A25C28369000682B7 /* TableViewDataSource.swift in Sources */,
+				345ABB8525D11DF200A37CED /* Button.swift in Sources */,
 				34B2ED0325BF27D7000682B7 /* MapSettings.swift in Sources */,
 				34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */,
 				34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */,
+				345ABBBB25D1243000A37CED /* PageViewController.swift in Sources */,
+				345ABBC325D1244000A37CED /* HistoryTableViewController.swift in Sources */,
+				345ABBCD25D1245900A37CED /* FavoriteTableViewController.swift in Sources */,
 				34B2ECCC25BF25F3000682B7 /* XibView.swift in Sources */,
 				34B2ECDD25BF26F4000682B7 /* InfoWindowView.swift in Sources */,
-				34B2ED7425C12FB4000682B7 /* SelectAddressView.swift in Sources */,
+				345ABB9425D11E1100A37CED /* Action.swift in Sources */,
+				345ABBC825D1244D00A37CED /* MyLocationViewController.swift in Sources */,
 				34B2ECE825BF2722000682B7 /* SetAddressFromMapView.swift in Sources */,
 				34B2ECD625BF269E000682B7 /* SearchView.swift in Sources */,
 				34B2ED0D25BF280D000682B7 /* SetAddressFromMapModel.swift in Sources */,
 				34B2ECFE25BF27D0000682B7 /* GoogleMapAPI.swift in Sources */,
 				34B2ECF425BF27BD000682B7 /* Geometry.swift in Sources */,
 				34B2ECAC25BF23D3000682B7 /* KeyManager.swift in Sources */,
+				345ABB8A25D11DFE00A37CED /* PlaceNameActionModel.swift in Sources */,
+				345ABBD325D1247C00A37CED /* PageViewDataSource.swift in Sources */,
 				34B2ED6725C12BA5000682B7 /* AutoCompleteViewController.swift in Sources */,
+				345ABB8F25D11E0700A37CED /* Realm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,15 +24,6 @@ enum Action{
                 return "到着地"
             }
         }
-//        func setPlaceName(placeName: String, VC:UIViewController){
-//            guard let preVC = VC.presentingViewController as? SearchViewController else {return}
-//            switch self{
-//            case .start:
-//                preVC.myView.textLabel[0].text = placeName
-//            case .goal:
-//                preVC.myView.textLabel[1].text = placeName
-//            }
-//        }
     }
     
     enum RealmDataBase{

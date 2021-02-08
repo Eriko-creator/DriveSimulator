@@ -7,27 +7,33 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (4.1.0):
     - GoogleMaps/Base (= 4.1.0)
-  - SegementSlide (3.0.1)
+  - Realm (10.5.1):
+    - Realm/Headers (= 10.5.1)
+  - Realm/Headers (10.5.1)
+  - RealmSwift (10.5.1):
+    - Realm (= 10.5.1)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GooglePlaces
-  - SegementSlide (= 3.0.1)
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
-    - SegementSlide
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
   GooglePlaces: a058b776259c13e1323c9ff135549cb1b13ad8e7
-  SegementSlide: 83b56ffb66b9c0edc4e4f2a74229309c62915db3
+  Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
+  RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
 
-PODFILE CHECKSUM: 36b35ee95a8f7c6158534854ad196536ed6f05ae
+PODFILE CHECKSUM: 380e4d479f4fe4318a123abe38468c57a9f8ad68
 
-COCOAPODS: 1.9.2
+COCOAPODS: 1.10.1
