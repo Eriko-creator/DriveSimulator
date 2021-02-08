@@ -9,26 +9,29 @@ import UIKit
 
 class SelectAddressViewController: UIViewController {
     
-    let myView = SelectAddressView()
-    var tag: Int = 1
+    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var historyButton: UIButton!
+    @IBOutlet weak var myLocationButton: UIButton!
+    @IBOutlet weak var favoritePlaceButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    private let placeAction = PlaceAction.shared
     
-    override func loadView() {
-        super.loadView()
-        self.view = myView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //instructionLabelに表示するtextを設定
+        instructionLabel.text = placeAction.action?.labelText
         
+        //containerViewにpageViewを設定
+        guard let pageView = self.storyboard?.instantiateViewController(withIdentifier: "pageView") else {return}
+        containerView.addSubview(pageView.view)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //出発地か到着地かのtagを取得しラベルに反映
-        let parentVC = self.parent as! SetAddressViewController
-        tag = parentVC.tag
-        let state = SearchModel.State(rawValue: tag)!
-        myView.instructionLabel.text = "\(state.text)を選択してください。"
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
+    @IBAction func changePageView(_ sender: Any) {
+        
+    }
 }

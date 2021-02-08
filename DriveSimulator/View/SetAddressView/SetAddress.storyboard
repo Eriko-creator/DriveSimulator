@@ -34,7 +34,6 @@
                             <constraint firstAttribute="trailing" secondItem="QgB-hQ-gaF" secondAttribute="trailing" id="inn-qz-etc"/>
                             <constraint firstItem="DkP-AO-voG" firstAttribute="leading" secondItem="V4C-QB-PFk" secondAttribute="leading" id="kNa-Ao-hXE"/>
                             <constraint firstItem="QgB-hQ-gaF" firstAttribute="top" secondItem="Gun-h7-7sL" secondAttribute="top" id="yJh-0i-JFp"/>
-                            <constraint firstItem="DkP-AO-voG" firstAttribute="top" secondItem="QgB-hQ-gaF" secondAttribute="bottom" id="zxF-bc-oqa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -60,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lb6-Sk-JbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="426"/>
+            <point key="canvasLocation" x="1319" y="467"/>
         </scene>
         <!--Select Address View Controller-->
         <scene sceneID="mZE-Xt-VoO">
@@ -69,17 +68,246 @@
                     <view key="view" contentMode="scaleToFill" id="2Bn-Nr-YrE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-Ym-ZhG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="110.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-sj-MAU">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JbX-vv-iLL">
+                                        <rect key="frame" x="0.0" y="55" width="414" height="55.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SI0-Zq-qh8">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="55.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="SI0-Zq-qh8" secondAttribute="height" multiplier="5:2" id="Owe-rb-QuT"/>
+                                                </constraints>
+                                                <state key="normal" title="履歴" image="history1000*400"/>
+                                                <state key="disabled" image="historySelected1000*400"/>
+                                                <connections>
+                                                    <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="fJN-uS-CCc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzm-Ls-4M1">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="55.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qzm-Ls-4M1" secondAttribute="height" multiplier="5:2" id="TiV-Bf-dzc"/>
+                                                </constraints>
+                                                <state key="normal" image="myLocation1000*400"/>
+                                                <state key="disabled" image="myLocationSelected1000*400"/>
+                                                <connections>
+                                                    <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="PUz-Tc-ykM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcj-Jt-4RC">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="55.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dcj-Jt-4RC" secondAttribute="height" multiplier="5:2" id="YSA-Ne-9pu"/>
+                                                </constraints>
+                                                <state key="normal" title="登録地点" image="favorite1000*400"/>
+                                                <state key="disabled" image="favoriteSelected1000*400"/>
+                                                <connections>
+                                                    <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="Yky-p6-h2x"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiG-Li-YLg">
+                                <rect key="frame" x="0.0" y="110.5" width="414" height="751.5"/>
+                            </containerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8ea-Qc-HGq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WmN-Ym-ZhG" firstAttribute="leading" secondItem="8ea-Qc-HGq" secondAttribute="leading" id="1tf-lr-kbH"/>
+                            <constraint firstItem="xiG-Li-YLg" firstAttribute="leading" secondItem="8ea-Qc-HGq" secondAttribute="leading" id="Ah1-Bs-KqE"/>
+                            <constraint firstItem="8ea-Qc-HGq" firstAttribute="trailing" secondItem="WmN-Ym-ZhG" secondAttribute="trailing" id="Cbt-fc-S2d"/>
+                            <constraint firstItem="8ea-Qc-HGq" firstAttribute="trailing" secondItem="xiG-Li-YLg" secondAttribute="trailing" id="PFd-wD-0u3"/>
+                            <constraint firstItem="8ea-Qc-HGq" firstAttribute="bottom" secondItem="xiG-Li-YLg" secondAttribute="bottom" id="PLO-tj-XK3"/>
+                            <constraint firstItem="xiG-Li-YLg" firstAttribute="top" secondItem="WmN-Ym-ZhG" secondAttribute="bottom" id="h8v-Nz-iov"/>
+                            <constraint firstItem="WmN-Ym-ZhG" firstAttribute="top" secondItem="2Bn-Nr-YrE" secondAttribute="top" id="hmu-F7-t9C"/>
+                            <constraint firstItem="xiG-Li-YLg" firstAttribute="top" secondItem="WmN-Ym-ZhG" secondAttribute="bottom" id="qUy-1l-nCQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9u4-C4-eWV"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="containerView" destination="xiG-Li-YLg" id="RdL-12-DMJ"/>
+                        <outlet property="favoritePlaceButton" destination="dcj-Jt-4RC" id="td5-qt-Up5"/>
+                        <outlet property="historyButton" destination="SI0-Zq-qh8" id="hiI-sm-Hq9"/>
+                        <outlet property="instructionLabel" destination="cIb-sj-MAU" id="6SV-Uq-qHw"/>
+                        <outlet property="myLocationButton" destination="qzm-Ls-4M1" id="eld-Op-yNv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkV-VB-aPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1319" y="-240"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="FgV-fv-9a4">
+            <objects>
+                <viewController storyboardIdentifier="pageView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jkn-n0-BOy" customClass="PageViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CbI-Q7-dZe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aRZ-UX-Gx0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Y7-l1-qL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013" y="-241"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="sHT-Ww-vjc">
+            <objects>
+                <viewController storyboardIdentifier="history" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TBX-Id-Xgy" customClass="HistoryTableViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AWh-em-9bT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SlH-by-1zw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ls8-Jb-j3B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SlH-by-1zw" firstAttribute="trailing" secondItem="ls8-Jb-j3B" secondAttribute="trailing" id="KyQ-Kd-AN9"/>
+                            <constraint firstAttribute="bottom" secondItem="SlH-by-1zw" secondAttribute="bottom" id="lhA-zz-Jkf"/>
+                            <constraint firstItem="SlH-by-1zw" firstAttribute="top" secondItem="AWh-em-9bT" secondAttribute="top" id="mhj-ex-8hM"/>
+                            <constraint firstItem="SlH-by-1zw" firstAttribute="leading" secondItem="ls8-Jb-j3B" secondAttribute="leading" id="yaN-rY-moI"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="tableView" destination="SlH-by-1zw" id="4f5-FW-LH1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbm-g5-W6m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734.7826086956525" y="-240.40178571428569"/>
+        </scene>
+        <!--My Location View Controller-->
+        <scene sceneID="A3t-0m-0St">
+            <objects>
+                <viewController storyboardIdentifier="myLocation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="it6-2m-dw9" customClass="MyLocationViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lZO-ZY-tgi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4u-Yo-R9i" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
+                                <rect key="frame" x="161" y="124" width="92" height="30"/>
+                                <state key="normal" title="出発地に設定"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkc-ji-Uv9">
+                                <rect key="frame" x="20" y="94" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="66A-9l-mMA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vkc-ji-Uv9" firstAttribute="top" secondItem="66A-9l-mMA" secondAttribute="top" constant="50" id="Acb-4f-juv"/>
+                            <constraint firstItem="Vkc-ji-Uv9" firstAttribute="leading" secondItem="66A-9l-mMA" secondAttribute="leading" constant="20" id="Pzh-Cc-OeN"/>
+                            <constraint firstItem="u4u-Yo-R9i" firstAttribute="top" secondItem="Vkc-ji-Uv9" secondAttribute="bottom" constant="30" id="Vxd-Lf-U6C"/>
+                            <constraint firstItem="66A-9l-mMA" firstAttribute="trailing" secondItem="Vkc-ji-Uv9" secondAttribute="trailing" constant="20" id="W6v-D6-fnL"/>
+                            <constraint firstItem="u4u-Yo-R9i" firstAttribute="centerX" secondItem="lZO-ZY-tgi" secondAttribute="centerX" id="wzl-0A-Tgr"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kaV-iJ-c6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3367" y="-240"/>
+        </scene>
+        <!--Favorite Table View Controller-->
+        <scene sceneID="E6r-C6-WLH">
+            <objects>
+                <viewController storyboardIdentifier="favorite" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CIu-UH-JD0" customClass="FavoriteTableViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xra-j3-JCd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自宅、職場など任意の名前で 地点を登録できます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-hY-tZA">
+                                <rect key="frame" x="20" y="94" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-2Q-95C" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
+                                <rect key="frame" x="165" y="165" width="84" height="41"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="acb-jf-znz">
+                                <rect key="frame" x="0.0" y="226" width="414" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vsi-hD-m0H"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XWl-hY-tZA" firstAttribute="top" secondItem="Vsi-hD-m0H" secondAttribute="top" constant="50" id="1aT-jo-LaO"/>
+                            <constraint firstItem="Vsi-hD-m0H" firstAttribute="trailing" secondItem="XWl-hY-tZA" secondAttribute="trailing" constant="20" id="Eet-j8-dud"/>
+                            <constraint firstAttribute="bottom" secondItem="acb-jf-znz" secondAttribute="bottom" id="FjO-zy-iL5"/>
+                            <constraint firstItem="acb-jf-znz" firstAttribute="leading" secondItem="Vsi-hD-m0H" secondAttribute="leading" id="GTd-iz-YdE"/>
+                            <constraint firstItem="acb-jf-znz" firstAttribute="trailing" secondItem="Vsi-hD-m0H" secondAttribute="trailing" id="IPG-65-Tmf"/>
+                            <constraint firstItem="acb-jf-znz" firstAttribute="top" secondItem="hVl-2Q-95C" secondAttribute="bottom" constant="20" id="KTq-w5-Nfe"/>
+                            <constraint firstItem="hVl-2Q-95C" firstAttribute="top" secondItem="XWl-hY-tZA" secondAttribute="bottom" constant="30" id="seJ-Sf-JOx"/>
+                            <constraint firstItem="hVl-2Q-95C" firstAttribute="centerX" secondItem="Xra-j3-JCd" secondAttribute="centerX" id="sgU-H3-6J6"/>
+                            <constraint firstItem="XWl-hY-tZA" firstAttribute="leading" secondItem="Vsi-hD-m0H" secondAttribute="leading" constant="20" id="zSm-ML-1B9"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbr-pa-UGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4011.594202898551" y="-240.40178571428569"/>
+        </scene>
+        <!--Set Address From Map View Controller-->
+        <scene sceneID="UbF-DY-cey">
+            <objects>
+                <viewController storyboardIdentifier="map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sig-Lv-kqx" customClass="SetAddressFromMapViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d0c-xR-FS1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sS1-rF-I28"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWq-yU-Nfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4655" y="-240"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="hVl-2Q-95C">
+            <size key="intrinsicContentSize" width="84" height="41"/>
+        </designable>
+        <designable name="u4u-Yo-R9i">
+            <size key="intrinsicContentSize" width="92" height="30"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="favorite1000*400" width="1000" height="400"/>
+        <image name="favoriteSelected1000*400" width="1000" height="400"/>
+        <image name="history1000*400" width="1000" height="400"/>
+        <image name="historySelected1000*400" width="1000" height="400"/>
+        <image name="myLocation1000*400" width="1000" height="400"/>
+        <image name="myLocationSelected1000*400" width="1000" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,6 +18,9 @@
 		345ABBC825D1244D00A37CED /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBC725D1244D00A37CED /* MyLocationViewController.swift */; };
 		345ABBCD25D1245900A37CED /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBCC25D1245900A37CED /* FavoriteTableViewController.swift */; };
 		345ABBD325D1247C00A37CED /* PageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBD225D1247C00A37CED /* PageViewDataSource.swift */; };
+		345ABBE125D1321900A37CED /* HistoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBE025D1321900A37CED /* HistoryTableViewDataSource.swift */; };
+		345ABBE925D137C100A37CED /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345ABBE825D137C100A37CED /* Cell.xib */; };
+		345ABBF625D1399700A37CED /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBF525D1399700A37CED /* Cell.swift */; };
 		34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */; };
 		34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6C25BF22A9000682B7 /* SceneDelegate.swift */; };
 		34B2EC6F25BF22A9000682B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6E25BF22A9000682B7 /* ViewController.swift */; };
@@ -80,6 +83,9 @@
 		345ABBC725D1244D00A37CED /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
 		345ABBCC25D1245900A37CED /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		345ABBD225D1247C00A37CED /* PageViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewDataSource.swift; sourceTree = "<group>"; };
+		345ABBE025D1321900A37CED /* HistoryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewDataSource.swift; sourceTree = "<group>"; };
+		345ABBE825D137C100A37CED /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		345ABBF525D1399700A37CED /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		34B2EC6725BF22A9000682B7 /* DriveSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34B2EC6C25BF22A9000682B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				345ABBD225D1247C00A37CED /* PageViewDataSource.swift */,
+				345ABBE025D1321900A37CED /* HistoryTableViewDataSource.swift */,
 			);
 			path = PageViewModel;
 			sourceTree = "<group>";
@@ -294,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				34B2ED6125C12998000682B7 /* SetAddress.storyboard */,
+				345ABBE825D137C100A37CED /* Cell.xib */,
+				345ABBF525D1399700A37CED /* Cell.swift */,
 			);
 			path = SetAddressView;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				34B2ED6225C12999000682B7 /* SetAddress.storyboard in Resources */,
 				34B2ECED25BF272F000682B7 /* SetAddressFromMapView.xib in Resources */,
 				34B2ECD125BF2687000682B7 /* SearchView.xib in Resources */,
+				345ABBE925D137C100A37CED /* Cell.xib in Resources */,
 				34B2ECA725BF2379000682B7 /* APIKey.plist in Resources */,
 				34B2EC7425BF22AC000682B7 /* Assets.xcassets in Resources */,
 				34B2ECE225BF26FC000682B7 /* InfoWindowView.xib in Resources */,
@@ -645,10 +655,12 @@
 				34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */,
 				34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */,
 				345ABBBB25D1243000A37CED /* PageViewController.swift in Sources */,
+				345ABBE125D1321900A37CED /* HistoryTableViewDataSource.swift in Sources */,
 				345ABBC325D1244000A37CED /* HistoryTableViewController.swift in Sources */,
 				345ABBCD25D1245900A37CED /* FavoriteTableViewController.swift in Sources */,
 				34B2ECCC25BF25F3000682B7 /* XibView.swift in Sources */,
 				34B2ECDD25BF26F4000682B7 /* InfoWindowView.swift in Sources */,
+				345ABBF625D1399700A37CED /* Cell.swift in Sources */,
 				345ABB9425D11E1100A37CED /* Action.swift in Sources */,
 				345ABBC825D1244D00A37CED /* MyLocationViewController.swift in Sources */,
 				34B2ECE825BF2722000682B7 /* SetAddressFromMapView.swift in Sources */,
