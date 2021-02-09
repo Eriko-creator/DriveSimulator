@@ -28,6 +28,9 @@ class AutoCompleteViewController: UIViewController {
         view.addSubview(tableView)
         
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
 extension AutoCompleteViewController: SetAddressViewControllerDelegate{
     func startAutoComplete(text: String) {

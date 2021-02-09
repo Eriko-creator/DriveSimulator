@@ -10,7 +10,6 @@ import RealmSwift
 
 class History: Object {
     @objc dynamic var placeName = ""
-    @objc dynamic var state = 1
     let location = List<Location>()
 }
 

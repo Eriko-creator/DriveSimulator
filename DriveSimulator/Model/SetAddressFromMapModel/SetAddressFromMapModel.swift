@@ -13,7 +13,7 @@ protocol SetAddressFromMapViewDelegate: class {
     func closeViewController()
 }
 
-final class SetAddressFromMapModel: MapSettings {
+final class SetAddressFromMapModel {
     
     struct Point{
         var marker: GMSMarker
@@ -43,17 +43,16 @@ final class SetAddressFromMapModel: MapSettings {
         //InfoWindowの内容を変更する
         info.setInfo(infoWindow: point.infoWindow)
         //タップ地点を中央にしてカメラを動かし、ピンを立てる
-        addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
-        
+        MapSettings.addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
     }
     
     func moveToPlace(name:String, mapView:GMSMapView){
         
-        googleMapAPI.getGeometry(address: name) {[unowned self](geometry) in
+        googleMapAPI.getGeometry(address: name) {(geometry) in
             if let geometry = geometry{
                 guard let results = geometry.results.first else {return}
                 
-                updateCameraView(lat:results.geometry.location.lat , lng: results.geometry.location.lng, mapView: mapView, zoom:15)
+                MapSettings.updateCameraView(lat:results.geometry.location.lat , lng: results.geometry.location.lng, mapView: mapView, zoom:15)
             }
         }
     }
@@ -61,7 +60,7 @@ final class SetAddressFromMapModel: MapSettings {
     //POI地点のInfoWindow情報を取得し、表示する
     public func showPOIinfoWindow(point:Point){
         
-        googleMapAPI.getPlaceDetails(placeID: point.placeID) { [unowned self](placeDetails) in
+        googleMapAPI.getPlaceDetails(placeID: point.placeID ?? "") { [unowned self](placeDetails) in
             print(placeDetails as Any)
             //画像がない場合
             if let placeDetails = placeDetails{
@@ -88,7 +87,7 @@ final class SetAddressFromMapModel: MapSettings {
         point.marker.map = point.mapView
         point.mapView.selectedMarker = point.marker
         //POIを中心にしてカメラを移動させる
-        updateCameraView(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView, zoom: 20)
+        MapSettings.updateCameraView(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView, zoom: 20)
 
     }
     

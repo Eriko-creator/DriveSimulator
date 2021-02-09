@@ -20,12 +20,9 @@ class SetAddressViewController: UIViewController{
     
     var delegate: SetAddressViewControllerDelegate?
     
-    var tag:Int = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(tag)
+
         //最初に表示するviewを設定
         self.currentViewController = self.storyboard!.instantiateViewController(withIdentifier: "selectAddressVC")
         self.addChild(self.currentViewController!)
@@ -41,6 +38,10 @@ class SetAddressViewController: UIViewController{
         //subViewをparentViewに合わせる
         subView.frame = parentView.bounds
         subView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
 

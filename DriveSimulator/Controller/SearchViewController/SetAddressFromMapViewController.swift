@@ -32,7 +32,7 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
         //Modelのデリゲートを設定
         model.delegate = self
         //現在地を取得する
-        MapSettings().requestLocation()
+        MapSettings.requestLocation()
         
     }
     
@@ -79,9 +79,6 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
         infoWindow.addressLabel.frame.size = CGSize(width: infoWindow.frame.size.width-10, height: infoWindow.frame.size.height/9)
         infoWindow.nameLabel.frame.size = CGSize(width: infoWindow.addressLabel.frame.size.width, height: infoWindow.addressLabel.frame.size.height*2)
         infoWindow.photoImageView.frame.size = CGSize(width: infoWindow.frame.size.width-20, height: infoWindow.addressLabel.frame.size.height*7)
-        infoWindow.layer.borderWidth = 5
-        infoWindow.layer.borderColor = CGColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
-        infoWindow.layer.cornerRadius = 8
         
         return infoWindow
         
