@@ -23,8 +23,16 @@ class SelectAddressViewController: UIViewController {
         instructionLabel.text = placeAction.action?.labelText
         
         //containerViewにpageViewを設定
-        guard let pageView = self.storyboard?.instantiateViewController(withIdentifier: "pageView") else {return}
-        containerView.addSubview(pageView.view)
+        guard let pageView = self.storyboard?.instantiateViewController(withIdentifier: "pageView") as? PageViewController else {return}
+        self.addChild(pageView)
+        addSubview(subView: pageView.view, toView: containerView)
+    }
+    
+    private func addSubview(subView:UIView, toView parentView: UIView) {
+        parentView.addSubview(subView)
+        //subViewをparentViewに合わせる
+        subView.frame = parentView.bounds
+        subView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     override func didReceiveMemoryWarning() {
