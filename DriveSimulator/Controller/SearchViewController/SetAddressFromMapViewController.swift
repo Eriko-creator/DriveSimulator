@@ -12,9 +12,8 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
     
     private let myView = SetAddressFromMapView()
     private let model = SetAddressFromMapModel()
-    let infoWindow = InfoWindowView()
-    let marker = GMSMarker()
-    let placeAction = PlaceAction.shared
+    private let infoWindow = InfoWindowView()
+    private let placeAction = PlaceAction.shared
 
     override func loadView() {
         super.loadView()
@@ -33,6 +32,9 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
         model.delegate = self
         //現在地を取得する
         MapSettings.requestLocation()
+        //instructionLabelを設定する
+        myView.instructionLabel.text = placeAction.action.labelText
+        myView.instructionLabel.isHidden = placeAction.action.isFavoriteVCPresented
         
     }
     
@@ -61,6 +63,7 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
     //地図上をタップした時
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         //タップした場所にマーカーを表示
+        let marker = GMSMarker()
         let point = SetAddressFromMapModel.Point(marker: marker, mapView: mapView, coordinate: coordinate, placeID: nil, infoWindow: infoWindow)
         model.setMarkerOnMap(point: point)
     }
@@ -86,9 +89,22 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
 }
 
 extension SetAddressFromMapViewController: SetAddressFromMapViewDelegate{
-    //画面を閉じる
+  
     func closeViewController() {
-        dismiss(animated: true, completion: nil)
+        
+        switch placeAction.action{
+        case .select:
+            //出発地、目的地を選ぶ時→画面を閉じる
+            placeAction.setPlaceName{
+                dismiss(animated: true, completion: nil)
+            }
+        case .save:
+            //地点を登録する時→画面遷移
+            guard let parentVC = self.parent as? PageViewController,
+                  let savePointVC = self.storyboard?.instantiateViewController(withIdentifier: "savePoint")
+            else {return}
+            parentVC.navigationController?.pushViewController(savePointVC, animated: true)
+        }
     }
 }
 

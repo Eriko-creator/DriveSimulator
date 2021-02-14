@@ -25,8 +25,8 @@ final class SetAddressFromMapModel {
 
     struct Info{
         var name: String = ""
-        var address: String = ""
-        var image: UIImage = UIImage(named: "noImage")!
+        var address: String? = ""
+        var image: UIImage? = UIImage(named: "noImage")!
         
         func setInfo(infoWindow:InfoWindowView){
             infoWindow.nameLabel.text = name
@@ -35,13 +35,25 @@ final class SetAddressFromMapModel {
         }
     }
     
-    let googleMapAPI = GoogleMapAPI()
+    private let googleMapAPI = GoogleMapAPI()
     weak var delegate: SetAddressFromMapViewDelegate?
-    let placeAction = PlaceAction.shared
+    private let placeAction = PlaceAction.shared
     
-    func setMarkerOnMap(point:Point, info:Info){
-        //InfoWindowの内容を変更する
-        info.setInfo(infoWindow: point.infoWindow)
+    init(){
+        print("setfromMapModel生成")
+    }
+    deinit {
+        print("setfromMapModel解放")
+    }
+    
+    func setMarkerOnMap(point:Point){
+        //緯度経度から住所を取得してinfoWindowに表示する
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(point.coordinate) { (response, error) in
+            guard let result = response?.firstResult(), let address = result.lines?.first else {return}
+            let info = Info(name: address)
+            info.setInfo(infoWindow: point.infoWindow)
+        }
         //タップ地点を中央にしてカメラを動かし、ピンを立てる
         MapSettings.addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
     }
@@ -60,22 +72,27 @@ final class SetAddressFromMapModel {
     //POI地点のInfoWindow情報を取得し、表示する
     public func showPOIinfoWindow(point:Point){
         
-        googleMapAPI.getPlaceDetails(placeID: point.placeID ?? "") { [unowned self](placeDetails) in
-            print(placeDetails as Any)
-            //画像がない場合
-            if let placeDetails = placeDetails{
-                if placeDetails.result.photos == nil{
-                    let noImageInfo = Info(name: placeDetails.result.name, address: placeDetails.result.formattedAddress)
+        let placesClient = GMSPlacesClient()
+        placesClient.fetchPlace(fromPlaceID: point.placeID ?? "", placeFields: [.name, .formattedAddress, .photos], sessionToken: nil) { [unowned self] (result, error) in
+            if let result = result{
+                
+                //画像がない場合
+                if result.photos == nil{
+                    let noImageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "")
                     noImageInfo.setInfo(infoWindow: point.infoWindow)
                     setPOIMarker(point: point)
                 //画像がある場合
-                }else if let photos = placeDetails.result.photos.first{
-                    googleMapAPI.getImage(photoReference: photos.photoReference) { (image) in
-                        let imageInfo = Info(name: placeDetails.result.name, address: placeDetails.result.formattedAddress, image: image)
-                        imageInfo.setInfo(infoWindow: point.infoWindow)
-                        setPOIMarker(point: point)
+                }else if let photos = result.photos?.first{
+                    placesClient.loadPlacePhoto(photos) { (image, error) in
+                        if let image = image{
+                            let imageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "", image: image)
+                            imageInfo.setInfo(infoWindow: point.infoWindow)
+                            setPOIMarker(point: point)
+                        }
                     }
                 }
+            }else{
+                print(error?.localizedDescription as Any)
             }
         }
     }
@@ -94,15 +111,13 @@ final class SetAddressFromMapModel {
     //infoWindowをタップした時のアラート
     func showAlert(infoWindow:InfoWindowView, coordinate: CLLocationCoordinate2D)->UIAlertController{
         
-        let alert = UIAlertController(title: "\(placeAction.action?.alertTitle ?? "")", message: "\(infoWindow.nameLabel.text!)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "\(placeAction.action.alertTitle)", message: "\(infoWindow.nameLabel.text!)", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default) { [unowned self](alertAction) in
             
             alert.dismiss(animated: true, completion: nil)
-            
-            //地名、緯度経度を通知、保存する
-            let place = Place(placeName: infoWindow.nameLabel.text ?? "", lat: coordinate.latitude, lng: coordinate.longitude)
-            placeAction.setPlaceName(place: place)
-            
+            //地名、緯度経度を保持させる
+            let place = Place(placeName: infoWindow.nameLabel.text ?? "", lat: coordinate.latitude, lng: coordinate.longitude, address: infoWindow.addressLabel.text ?? "")
+            placeAction.place = place
             //画面を閉じる
             delegate?.closeViewController()
         }
@@ -114,5 +129,4 @@ final class SetAddressFromMapModel {
         
         return alert
     }
-    
 }
