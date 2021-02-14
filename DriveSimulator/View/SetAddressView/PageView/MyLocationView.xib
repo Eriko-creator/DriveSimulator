@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyLocationView" customModule="DriveSimulator" customModuleProvider="target">
+            <connections>
+                <outlet property="addressLabel" destination="pmv-0a-Wgi" id="vWh-uN-bgi"/>
+                <outlet property="instructionButton" destination="BUZ-EB-bZy" id="91M-LL-oPe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-0a-Wgi">
+                    <rect key="frame" x="20" y="94" width="374" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUZ-EB-bZy" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
+                    <rect key="frame" x="161" y="124" width="92" height="30"/>
+                    <state key="normal" title="出発地に設定"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="pmv-0a-Wgi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="4Ll-Cc-uCF"/>
+                <constraint firstAttribute="trailing" secondItem="pmv-0a-Wgi" secondAttribute="trailing" constant="20" id="I5i-oi-Dtg"/>
+                <constraint firstItem="pmv-0a-Wgi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="PlQ-6e-Fy7"/>
+                <constraint firstItem="BUZ-EB-bZy" firstAttribute="top" secondItem="pmv-0a-Wgi" secondAttribute="bottom" constant="30" id="jx7-L1-2EF"/>
+                <constraint firstItem="BUZ-EB-bZy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sN5-kI-zAe"/>
+            </constraints>
+            <point key="canvasLocation" x="-23" y="54"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="BUZ-EB-bZy">
+            <size key="intrinsicContentSize" width="92" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

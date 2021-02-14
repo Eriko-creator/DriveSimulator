@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3E9-qd-qKp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Set Address View Controller-->
+        <!--地点を登録-->
         <scene sceneID="8cF-VH-kJp">
             <objects>
                 <viewController storyboardIdentifier="setAddress" id="3E9-qd-qKp" customClass="SetAddressViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkP-AO-voG">
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                            </containerView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QgB-hQ-gaF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkP-AO-voG">
-                                <rect key="frame" x="0.0" y="56" width="414" height="840"/>
-                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V4C-QB-PFk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -31,19 +31,23 @@
                             <constraint firstItem="DkP-AO-voG" firstAttribute="trailing" secondItem="V4C-QB-PFk" secondAttribute="trailing" id="MKH-lo-Iek"/>
                             <constraint firstAttribute="bottom" secondItem="DkP-AO-voG" secondAttribute="bottom" id="QeP-mQ-xGD"/>
                             <constraint firstItem="QgB-hQ-gaF" firstAttribute="leading" secondItem="Gun-h7-7sL" secondAttribute="leading" id="Vgs-Ys-QF8"/>
+                            <constraint firstItem="QgB-hQ-gaF" firstAttribute="top" secondItem="V4C-QB-PFk" secondAttribute="top" id="bWG-eU-xFf"/>
                             <constraint firstAttribute="trailing" secondItem="QgB-hQ-gaF" secondAttribute="trailing" id="inn-qz-etc"/>
                             <constraint firstItem="DkP-AO-voG" firstAttribute="leading" secondItem="V4C-QB-PFk" secondAttribute="leading" id="kNa-Ao-hXE"/>
-                            <constraint firstItem="QgB-hQ-gaF" firstAttribute="top" secondItem="Gun-h7-7sL" secondAttribute="top" id="yJh-0i-JFp"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="favorites" id="Awg-gA-Uxc"/>
+                    <navigationItem key="navigationItem" title="地点を登録" id="qg4-38-aRc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="DkP-AO-voG" id="zvF-BW-MPb"/>
                         <outlet property="searchBar" destination="QgB-hQ-gaF" id="b9d-io-3Ln"/>
+                        <segue destination="xkY-vz-bSh" kind="show" identifier="" id="0Bw-Up-enw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSJ-Xc-Gdj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234.78260869565219" y="76.339285714285708"/>
+            <point key="canvasLocation" x="1363.768115942029" y="38.839285714285715"/>
         </scene>
         <!--Auto Complete View Controller-->
         <scene sceneID="zUe-Gf-Ob0">
@@ -56,10 +60,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="czE-XJ-pEq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lb6-Sk-JbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="467"/>
+            <point key="canvasLocation" x="2229" y="451"/>
         </scene>
         <!--Select Address View Controller-->
         <scene sceneID="mZE-Xt-VoO">
@@ -72,7 +77,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-Ym-ZhG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-sj-MAU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-sj-MAU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -87,30 +92,40 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SI0-Zq-qh8" secondAttribute="height" multiplier="5:2" id="Owe-rb-QuT"/>
                                                 </constraints>
-                                                <state key="normal" title="履歴" image="history1000*400"/>
-                                                <state key="disabled" image="historySelected1000*400"/>
+                                                <state key="normal" title="履歴" image="history"/>
+                                                <state key="disabled" image="historySelected"/>
                                                 <connections>
                                                     <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="fJN-uS-CCc"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzm-Ls-4M1">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzm-Ls-4M1">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="55.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qzm-Ls-4M1" secondAttribute="height" multiplier="5:2" id="TiV-Bf-dzc"/>
                                                 </constraints>
-                                                <state key="normal" image="myLocation1000*400"/>
-                                                <state key="disabled" image="myLocationSelected1000*400"/>
+                                                <state key="normal" image="myLocation">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="　　　　　　　　　　　　　　">
+                                                            <attributes>
+                                                                <font key="NSFont" metaFont="smallSystem"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <integer key="NSUnderline" value="1"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <state key="disabled" image="myLocationSelected"/>
                                                 <connections>
                                                     <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="PUz-Tc-ykM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcj-Jt-4RC">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcj-Jt-4RC">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="55.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dcj-Jt-4RC" secondAttribute="height" multiplier="5:2" id="YSA-Ne-9pu"/>
                                                 </constraints>
-                                                <state key="normal" title="登録地点" image="favorite1000*400"/>
-                                                <state key="disabled" image="favoriteSelected1000*400"/>
+                                                <state key="normal" title="登録地点" image="favorite"/>
+                                                <state key="disabled" image="favoriteSelected"/>
                                                 <connections>
                                                     <action selector="changePageView:" destination="9e1-k2-YvV" eventType="touchUpInside" id="Yky-p6-h2x"/>
                                                 </connections>
@@ -120,7 +135,7 @@
                                 </subviews>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiG-Li-YLg">
-                                <rect key="frame" x="0.0" y="110.5" width="414" height="751.5"/>
+                                <rect key="frame" x="0.0" y="110.5" width="414" height="702.5"/>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8ea-Qc-HGq"/>
@@ -137,6 +152,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9u4-C4-eWV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
@@ -149,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkV-VB-aPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="-240"/>
+            <point key="canvasLocation" x="2228.985507246377" y="-240.40178571428569"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="FgV-fv-9a4">
@@ -165,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Y7-l1-qL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013" y="-241"/>
+            <point key="canvasLocation" x="2921.739130434783" y="-241.07142857142856"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="sHT-Ww-vjc">
@@ -174,29 +190,14 @@
                     <view key="view" contentMode="scaleToFill" id="AWh-em-9bT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SlH-by-1zw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ls8-Jb-j3B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="SlH-by-1zw" firstAttribute="trailing" secondItem="ls8-Jb-j3B" secondAttribute="trailing" id="KyQ-Kd-AN9"/>
-                            <constraint firstAttribute="bottom" secondItem="SlH-by-1zw" secondAttribute="bottom" id="lhA-zz-Jkf"/>
-                            <constraint firstItem="SlH-by-1zw" firstAttribute="top" secondItem="AWh-em-9bT" secondAttribute="top" id="mhj-ex-8hM"/>
-                            <constraint firstItem="SlH-by-1zw" firstAttribute="leading" secondItem="ls8-Jb-j3B" secondAttribute="leading" id="yaN-rY-moI"/>
-                        </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
-                    <connections>
-                        <outlet property="tableView" destination="SlH-by-1zw" id="4f5-FW-LH1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbm-g5-W6m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734.7826086956525" y="-240.40178571428569"/>
+            <point key="canvasLocation" x="3609" y="-240"/>
         </scene>
         <!--My Location View Controller-->
         <scene sceneID="A3t-0m-0St">
@@ -205,33 +206,14 @@
                     <view key="view" contentMode="scaleToFill" id="lZO-ZY-tgi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4u-Yo-R9i" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
-                                <rect key="frame" x="161" y="124" width="92" height="30"/>
-                                <state key="normal" title="出発地に設定"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkc-ji-Uv9">
-                                <rect key="frame" x="20" y="94" width="374" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="66A-9l-mMA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Vkc-ji-Uv9" firstAttribute="top" secondItem="66A-9l-mMA" secondAttribute="top" constant="50" id="Acb-4f-juv"/>
-                            <constraint firstItem="Vkc-ji-Uv9" firstAttribute="leading" secondItem="66A-9l-mMA" secondAttribute="leading" constant="20" id="Pzh-Cc-OeN"/>
-                            <constraint firstItem="u4u-Yo-R9i" firstAttribute="top" secondItem="Vkc-ji-Uv9" secondAttribute="bottom" constant="30" id="Vxd-Lf-U6C"/>
-                            <constraint firstItem="66A-9l-mMA" firstAttribute="trailing" secondItem="Vkc-ji-Uv9" secondAttribute="trailing" constant="20" id="W6v-D6-fnL"/>
-                            <constraint firstItem="u4u-Yo-R9i" firstAttribute="centerX" secondItem="lZO-ZY-tgi" secondAttribute="centerX" id="wzl-0A-Tgr"/>
-                        </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kaV-iJ-c6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3367" y="-240"/>
+            <point key="canvasLocation" x="4276.811594202899" y="-240.40178571428569"/>
         </scene>
         <!--Favorite Table View Controller-->
         <scene sceneID="E6r-C6-WLH">
@@ -240,41 +222,14 @@
                     <view key="view" contentMode="scaleToFill" id="Xra-j3-JCd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自宅、職場など任意の名前で 地点を登録できます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-hY-tZA">
-                                <rect key="frame" x="20" y="94" width="374" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-2Q-95C" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
-                                <rect key="frame" x="165" y="165" width="84" height="41"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="acb-jf-znz">
-                                <rect key="frame" x="0.0" y="226" width="414" height="670"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Vsi-hD-m0H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="XWl-hY-tZA" firstAttribute="top" secondItem="Vsi-hD-m0H" secondAttribute="top" constant="50" id="1aT-jo-LaO"/>
-                            <constraint firstItem="Vsi-hD-m0H" firstAttribute="trailing" secondItem="XWl-hY-tZA" secondAttribute="trailing" constant="20" id="Eet-j8-dud"/>
-                            <constraint firstAttribute="bottom" secondItem="acb-jf-znz" secondAttribute="bottom" id="FjO-zy-iL5"/>
-                            <constraint firstItem="acb-jf-znz" firstAttribute="leading" secondItem="Vsi-hD-m0H" secondAttribute="leading" id="GTd-iz-YdE"/>
-                            <constraint firstItem="acb-jf-znz" firstAttribute="trailing" secondItem="Vsi-hD-m0H" secondAttribute="trailing" id="IPG-65-Tmf"/>
-                            <constraint firstItem="acb-jf-znz" firstAttribute="top" secondItem="hVl-2Q-95C" secondAttribute="bottom" constant="20" id="KTq-w5-Nfe"/>
-                            <constraint firstItem="hVl-2Q-95C" firstAttribute="top" secondItem="XWl-hY-tZA" secondAttribute="bottom" constant="30" id="seJ-Sf-JOx"/>
-                            <constraint firstItem="hVl-2Q-95C" firstAttribute="centerX" secondItem="Xra-j3-JCd" secondAttribute="centerX" id="sgU-H3-6J6"/>
-                            <constraint firstItem="XWl-hY-tZA" firstAttribute="leading" secondItem="Vsi-hD-m0H" secondAttribute="leading" constant="20" id="zSm-ML-1B9"/>
-                        </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbr-pa-UGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4011.594202898551" y="-240.40178571428569"/>
+            <point key="canvasLocation" x="4921.739130434783" y="-240.40178571428569"/>
         </scene>
         <!--Set Address From Map View Controller-->
         <scene sceneID="UbF-DY-cey">
@@ -290,24 +245,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWq-yU-Nfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4655" y="-240"/>
+            <point key="canvasLocation" x="5563.768115942029" y="-240.40178571428569"/>
+        </scene>
+        <!--地点を登録-->
+        <scene sceneID="cLk-ES-rKa">
+            <objects>
+                <viewController storyboardIdentifier="savePoint" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xkY-vz-bSh" customClass="SavePointViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oWH-BA-arS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kkV-WB-MW8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="地点を登録" id="lup-rm-k9v"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oh9-iF-5yR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="781"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="hVl-2Q-95C">
-            <size key="intrinsicContentSize" width="84" height="41"/>
-        </designable>
-        <designable name="u4u-Yo-R9i">
-            <size key="intrinsicContentSize" width="92" height="30"/>
-        </designable>
-    </designables>
     <resources>
-        <image name="favorite1000*400" width="1000" height="400"/>
-        <image name="favoriteSelected1000*400" width="1000" height="400"/>
-        <image name="history1000*400" width="1000" height="400"/>
-        <image name="historySelected1000*400" width="1000" height="400"/>
-        <image name="myLocation1000*400" width="1000" height="400"/>
-        <image name="myLocationSelected1000*400" width="1000" height="400"/>
+        <image name="favorite" width="1000" height="400"/>
+        <image name="favoriteSelected" width="1000" height="400"/>
+        <image name="history" width="1000" height="400"/>
+        <image name="historySelected" width="1000" height="400"/>
+        <image name="myLocation" width="1000" height="400"/>
+        <image name="myLocationSelected" width="1000" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

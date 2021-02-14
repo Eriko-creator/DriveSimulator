@@ -10,6 +10,7 @@ pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'Alamofire'
 pod 'RealmSwift'
+pod 'DZNEmptyDataSet'
 
 
   target 'DriveSimulatorTests' do

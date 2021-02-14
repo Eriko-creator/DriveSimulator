@@ -10,6 +10,14 @@ import UIKit
 
 class PageViewModel: NSObject{
     
+    override init(){
+        print("pageViewModel生成")
+    }
+    deinit {
+        print("pageViewModel解放")
+    }
+    
+    
     func setControllers(action:Action, vc: UIViewController)->[UIViewController]{
         
         switch action{
@@ -27,7 +35,7 @@ class PageViewModel: NSObject{
             
             guard let history = vc.storyboard?.instantiateViewController(withIdentifier: "history") as? HistoryTableViewController,
                   let myLocation = vc.storyboard?.instantiateViewController(withIdentifier: "myLocation") as? MyLocationViewController,
-                  let map = vc.storyboard?.instantiateViewController(withIdentifier: "map") as? SetAddressViewController
+                  let map = vc.storyboard?.instantiateViewController(withIdentifier: "map") as? SetAddressFromMapViewController
             else {return []}
             
             return [history, myLocation, map]
