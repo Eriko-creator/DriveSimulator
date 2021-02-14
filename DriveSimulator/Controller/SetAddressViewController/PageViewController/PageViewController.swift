@@ -9,9 +9,9 @@ import UIKit
 
 class PageViewController: UIViewController{
 
-    private var pageView: UIPageViewController?
+    var pageView: UIPageViewController?
+    var controllers: [UIViewController] = []
     private let placeAction = PlaceAction.shared
-    private var controllers: [UIViewController] = []
     private let model = PageViewModel()
     
     
@@ -19,7 +19,6 @@ class PageViewController: UIViewController{
         super.viewDidLoad()
 
         initPageViewController()
-        print(controllers)
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,7 +29,7 @@ class PageViewController: UIViewController{
         
         pageView = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         //表示するcontrollerを決定
-        guard let action = placeAction.action else {return}
+        let action = placeAction.action
         controllers = model.setControllers(action: action, vc: self)
         
         //最初に表示するVCをセット
@@ -79,7 +78,8 @@ extension UIPageViewController{
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         
-        guard let presentationController = presentationController else {return}
+        guard let parentVC = parent as? PageViewController,
+              let presentationController = parentVC.presentationController else {return}
         presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }
