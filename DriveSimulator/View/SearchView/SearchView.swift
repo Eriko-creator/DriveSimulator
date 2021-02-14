@@ -17,7 +17,6 @@ class SearchView: XibView{
     
     var delegate: SearchViewDelegate?
     
-    
     @IBOutlet var textLabel: [UILabel]!
     
     @IBAction func labelTapGestureRecognizer(_ sender: Any) {
@@ -32,7 +31,6 @@ class SearchView: XibView{
     @IBAction func setAddressFromMapButton(_ sender: Any) {
         let button = sender as! UIButton
         delegate?.presentSetAddressFromMapView(tag:button.tag)
-        print(button.tag)
     }
     
     @IBOutlet weak var setDateButton: UIButton!

@@ -13,39 +13,43 @@ struct Place{
     var placeName:String
     var lat: Double
     var lng: Double
+    var address: String = ""
 }
 
 class PlaceAction{
     
     //シングルトン
-    var action: Action?
-    var lat: Double = 0.0
-    var lng: Double = 0.0
+    lazy var place: Place = Place(placeName: "", lat: 0.0, lng: 0.0, address: "")
+    lazy var action: Action = Action.save(realmDatabase: .favorite)
     
     static let shared = PlaceAction()
     private init(){
+        print("placeAction生成")
+    }
+    deinit {
+        print("placeAction解放")
     }
     
     //エラー 地名を取得できませんでした
-    func setPlaceName(place:Place){
+    func setPlaceName(completion: ()->Void){
         
         switch action{
         case .select(let state):
             
             switch state{
             case .start:
-                NotificationCenter.default.post(name: .selectedStartPlaceName, object: nil, userInfo: ["selectedStartPlaceName": place.placeName])
+                NotificationCenter.default.post(name: .selectedStartPlace, object: nil, userInfo: ["selectedStartPlace": place])
+                completion()
             case .goal:
-                NotificationCenter.default.post(name: .selectedGoalPlaceName, object: nil, userInfo: ["selectedGoalPlaceName": place.placeName])
+                NotificationCenter.default.post(name: .selectedGoalPlace, object: nil, userInfo: ["selectedGoalPlace": place])
+                completion()
             }
-        case .save(let realmDataBase):
-            savePlace(placeName: place.placeName, lat: place.lat, lng: place.lng, realmDataBase: realmDataBase)
-        case .none:
-            break
+        case .save:
+            completion()
         }
     }
     
-    private func savePlace(placeName: String, lat: Double, lng: Double, realmDataBase: Action.RealmDataBase){
+    public func savePlace(placeName: String, lat: Double, lng: Double, realmDataBase: Action.RealmDataBase){
         
         do{
             let realm = try Realm()
@@ -64,6 +68,7 @@ class PlaceAction{
                         realm.add(history)
                         print(history)
                     }
+                    //成功アニメーションを流す
                         
                 case .favorite:
                    
@@ -72,6 +77,7 @@ class PlaceAction{
                         realm.add(favorite)
                         print(favorite)
                     }
+                    //成功アニメーションを流す
             }
         }catch{
             print("データの保存に失敗しました:\(error)")
@@ -81,9 +87,7 @@ class PlaceAction{
 
 extension Notification.Name{
     
-    static let selectedStartPlaceName = Notification.Name("selectedStartPlaceName")
-    static let selectedGoalPlaceName = Notification.Name("selectedGoalPlaceName")
+    static let selectedStartPlace = Notification.Name("selectedStartPlace")
+    static let selectedGoalPlace = Notification.Name("selectedGoalPlace")
 
 }
-
-

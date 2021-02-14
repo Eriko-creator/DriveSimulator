@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    let myView = SearchView()
+    private let myView = SearchView()
     
     override func loadView() {
         super.loadView()
@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPlaceName()
+         getPlaceName()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,14 +33,14 @@ class SearchViewController: UIViewController {
     
     private func getPlaceName(){
         
-        NotificationCenter.default.addObserver(forName: .selectedStartPlaceName, object: nil, queue: nil) { (notification) in
-            guard let startPlaceName = notification.userInfo?["selectedStartPlaceName"] as? String else {return}
-            self.myView.textLabel[0].text = startPlaceName
+        NotificationCenter.default.addObserver(forName: .selectedStartPlace, object: nil, queue: nil) { (notification) in
+            guard let startPlace = notification.userInfo?["selectedStartPlace"] as? Place else {return}
+            self.myView.textLabel[0].text = startPlace.placeName
         }
         
-        NotificationCenter.default.addObserver(forName: .selectedGoalPlaceName, object: nil, queue: nil) { (notification) in
-            guard let goalPlaceName = notification.userInfo?["selectedGoalPlaceName"] as? String else {return}
-            self.myView.textLabel[1].text = goalPlaceName
+        NotificationCenter.default.addObserver(forName: .selectedGoalPlace, object: nil, queue: nil) { (notification) in
+            guard let goalPlace = notification.userInfo?["selectedGoalPlace"] as? Place else {return}
+            self.myView.textLabel[1].text = goalPlace.placeName
         }
         
     }
