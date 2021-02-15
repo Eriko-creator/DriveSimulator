@@ -34,7 +34,7 @@ enum Action{
     case select(state:State)
     case save(realmDatabase: RealmDataBase)
     
-    var showFavoriteVC: Bool{
+    var isFavoriteVCPresented: Bool{
         switch self{
         case .select:
             return false
