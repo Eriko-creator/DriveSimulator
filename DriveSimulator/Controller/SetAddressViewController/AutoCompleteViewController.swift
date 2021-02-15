@@ -53,13 +53,27 @@ extension AutoCompleteViewController: GMSAutocompleteTableDataSourceDelegate{
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
-        //処理を行う
-        let place = Place(placeName: place.name ?? "", lat: place.coordinate.latitude, lng: place.coordinate.longitude)
-        placeAction.setPlaceName(place: place)
-        dismiss(animated: true, completion: nil)
+        //選んだ地名に対する処理を行う
+        let place = Place(placeName: place.name ?? "", lat: place.coordinate.latitude, lng: place.coordinate.longitude, address: place.formattedAddress ?? "")
+        //placeの値を渡す
+        placeAction.place = place
+        placeAction.setPlaceName() {
+            setCompletion()
+        }
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didFailAutocompleteWithError error: Error) {
         print("Error: \(error.localizedDescription)")
+    }
+    
+    private func setCompletion(){
+        guard let parentVC = parent as? SetAddressViewController else {return}
+        switch placeAction.action{
+        case .select:
+            parentVC.dismiss(animated: true, completion: nil)
+        case .save:
+            guard let savePointVC = parentVC.storyboard?.instantiateViewController(withIdentifier: "savePoint") as? SavePointViewController else {return}
+            parentVC.navigationController?.pushViewController(savePointVC, animated: true)
+        }
     }
 }
