@@ -26,12 +26,20 @@ import UIKit
     }
     
     private func customDesign(){
-        frame.size = CGSize(width: 250, height: 40)
-        backgroundColor = UIColor(displayP3Red: 245/255, green: 178/255, blue: 78/255, alpha: 1.0)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 17)
         contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         layer.cornerRadius = 15.0
-        contentHorizontalAlignment = .center
+        
+    }
+    
+    override var isEnabled: Bool{
+        didSet{
+            if self.isEnabled{
+                self.backgroundColor = UIColor(displayP3Red: 245/255, green: 178/255, blue: 78/255, alpha: 1.0)
+            }else {
+                self.backgroundColor = UIColor(displayP3Red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)
+            }
+        }
     }
 }
