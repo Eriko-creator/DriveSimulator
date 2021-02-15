@@ -11,8 +11,6 @@ class PageViewController: UIViewController{
 
     var pageView: UIPageViewController?
     var controllers: [UIViewController] = []
-    private let placeAction = PlaceAction.shared
-    private let model = PageViewModel()
     
     
     override func viewDidLoad() {
@@ -29,7 +27,8 @@ class PageViewController: UIViewController{
         
         pageView = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         //表示するcontrollerを決定
-        let action = placeAction.action
+        let model = PageViewModel()
+        let action = PlaceAction.shared.action
         controllers = model.setControllers(action: action, vc: self)
         
         //最初に表示するVCをセット

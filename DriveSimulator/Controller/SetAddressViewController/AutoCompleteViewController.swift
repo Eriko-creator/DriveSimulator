@@ -10,8 +10,8 @@ import GooglePlaces
 
 class AutoCompleteViewController: UIViewController {
 
-    private var tableView: UITableView!
-    private var tableDataSource: GMSAutocompleteTableDataSource!
+    private var tableView: UITableView?
+    private var tableDataSource: GMSAutocompleteTableDataSource?
     private let placeAction = PlaceAction.shared
     
 
@@ -20,12 +20,14 @@ class AutoCompleteViewController: UIViewController {
 
         //tableDataSourceのデリゲートを設定
         tableDataSource = GMSAutocompleteTableDataSource()
-        tableDataSource.delegate = self
+        tableDataSource?.delegate = self
         //tableViewの設定
         tableView = UITableView(frame: self.view.bounds)
-        tableView.delegate = tableDataSource
-        tableView.dataSource = tableDataSource
+        tableView?.delegate = tableDataSource
+        tableView?.dataSource = tableDataSource
+        if let tableView = tableView{
         view.addSubview(tableView)
+        }
         
     }
     override func didReceiveMemoryWarning() {
@@ -34,18 +36,18 @@ class AutoCompleteViewController: UIViewController {
 }
 extension AutoCompleteViewController: SetAddressViewControllerDelegate{
     func startAutoComplete(text: String) {
-        tableDataSource.sourceTextHasChanged(text)
+        tableDataSource?.sourceTextHasChanged(text)
     }
 }
 
 extension AutoCompleteViewController: GMSAutocompleteTableDataSourceDelegate{
     
     func didUpdateAutocompletePredictions(for tableDataSource: GMSAutocompleteTableDataSource) {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     func didRequestAutocompletePredictions(for tableDataSource: GMSAutocompleteTableDataSource) {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didSelect prediction: GMSAutocompletePrediction) -> Bool {

@@ -12,7 +12,6 @@ import DZNEmptyDataSet
 class HistoryTableViewController: UIViewController {
 
     weak var dataSource: HistoryTableViewDataSource?
-    private let placeAction = PlaceAction.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +45,7 @@ extension HistoryTableViewController: UITableViewDelegate{
         
         guard let cell: Cell = tableView.cellForRow(at: indexPath) as? Cell else {return}
         let place = setPlace(placeName: cell.placeNameLabel.text ?? "")
+        let placeAction = PlaceAction.shared
         //placeの値を渡す
         placeAction.place = place
         placeAction.setPlaceName() {

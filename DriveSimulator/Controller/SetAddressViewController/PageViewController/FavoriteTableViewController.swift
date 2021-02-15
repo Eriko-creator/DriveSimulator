@@ -12,7 +12,6 @@ import DZNEmptyDataSet
 class FavoriteTableViewController: UIViewController {
 
     weak var dataSource: FavoriteTableViewDataSource?
-    private let placeAction = PlaceAction.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +43,7 @@ extension FavoriteTableViewController: UITableViewDelegate{
     //セルをタップした時setPlaceNameメソッド発動
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell: Cell = tableView.cellForRow(at: indexPath) as? Cell else {return}
+        let placeAction = PlaceAction.shared
         placeAction.place = setPlace(placeName: cell.placeNameLabel.text ?? "")
         placeAction.setPlaceName {}
         
