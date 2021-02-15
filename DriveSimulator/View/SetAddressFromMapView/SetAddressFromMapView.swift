@@ -37,11 +37,10 @@ class SetAddressFromMapView: XibView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        mapView.frame = CGRect(x: 0, y: self.frame.minY + searchBar.frame.height + instructionLabel.frame.height, width: self.frame.width, height: self.frame.height - searchBar.frame.height)
+        mapView.frame = CGRect(x: 0, y: self.frame.minY + searchBar.frame.height + instructionLabel.frame.height, width: self.frame.width, height: self.frame.height - searchBar.frame.height - instructionLabel.frame.height)
         mapView.camera = GMSCameraPosition(latitude: 35.6809591, longitude: 139.7673068, zoom: 15.0)
         //現在地を表示
         mapView.settings.myLocationButton = true
         mapView.isMyLocationEnabled = true
     }
-    
 }

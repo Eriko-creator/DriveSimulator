@@ -26,7 +26,7 @@ final class SetAddressFromMapModel {
     struct Info{
         var name: String = ""
         var address: String? = ""
-        var image: UIImage? = UIImage(named: "noImage")!
+        var image: UIImage? = UIImage(named: "noImage")
         
         func setInfo(infoWindow:InfoWindowView){
             infoWindow.nameLabel.text = name
@@ -49,13 +49,12 @@ final class SetAddressFromMapModel {
     func setMarkerOnMap(point:Point){
         //緯度経度から住所を取得してinfoWindowに表示する
         let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(point.coordinate) { (response, error) in
+        geocoder.reverseGeocodeCoordinate(point.coordinate) { [unowned self] (response, error) in
             guard let result = response?.firstResult(), let address = result.lines?.first else {return}
             let info = Info(name: address)
             info.setInfo(infoWindow: point.infoWindow)
+            setMarker(point: point)
         }
-        //タップ地点を中央にしてカメラを動かし、ピンを立てる
-        MapSettings.addMarker(lat: point.coordinate.latitude, lng: point.coordinate.longitude, mapView: point.mapView)
     }
     
     func moveToPlace(name:String, mapView:GMSMapView){
@@ -72,6 +71,7 @@ final class SetAddressFromMapModel {
     //POI地点のInfoWindow情報を取得し、表示する
     public func showPOIinfoWindow(point:Point){
         
+        point.mapView.clear()
         let placesClient = GMSPlacesClient()
         placesClient.fetchPlace(fromPlaceID: point.placeID ?? "", placeFields: [.name, .formattedAddress, .photos], sessionToken: nil) { [unowned self] (result, error) in
             if let result = result{
@@ -80,14 +80,14 @@ final class SetAddressFromMapModel {
                 if result.photos == nil{
                     let noImageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "")
                     noImageInfo.setInfo(infoWindow: point.infoWindow)
-                    setPOIMarker(point: point)
+                    setMarker(point: point)
                 //画像がある場合
                 }else if let photos = result.photos?.first{
-                    placesClient.loadPlacePhoto(photos) { (image, error) in
+                    placesClient.loadPlacePhoto(photos, constrainedTo: CGSize(width: 284, height: 132), scale: 1.0) { (image, error) in
                         if let image = image{
                             let imageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "", image: image)
                             imageInfo.setInfo(infoWindow: point.infoWindow)
-                            setPOIMarker(point: point)
+                            setMarker(point: point)
                         }
                     }
                 }
@@ -97,10 +97,10 @@ final class SetAddressFromMapModel {
         }
     }
     
-    private func setPOIMarker(point:Point){
+    private func setMarker(point:Point){
         //POIにInfoWindowを表示
         point.marker.position = point.coordinate
-        point.marker.opacity = 0
+        point.marker.opacity = 1.0
         point.marker.map = point.mapView
         point.mapView.selectedMarker = point.marker
         //POIを中心にしてカメラを移動させる

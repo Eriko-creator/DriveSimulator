@@ -78,10 +78,11 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
     //InfoWindowにCustomViewを設定する
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         infoWindow.frame.size.width = myView.frame.size.width/1.5
-        infoWindow.frame.size.height = myView.frame.size.height/4
+        infoWindow.frame.size.height = infoWindow.frame.size.width
         infoWindow.addressLabel.frame.size = CGSize(width: infoWindow.frame.size.width-10, height: infoWindow.frame.size.height/9)
         infoWindow.nameLabel.frame.size = CGSize(width: infoWindow.addressLabel.frame.size.width, height: infoWindow.addressLabel.frame.size.height*2)
-        infoWindow.photoImageView.frame.size = CGSize(width: infoWindow.frame.size.width-20, height: infoWindow.addressLabel.frame.size.height*7)
+        infoWindow.photoImageView.frame.size = CGSize(width: infoWindow.frame.size.width-20, height: infoWindow.addressLabel.frame.size.height*6)
+        infoWindow.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         return infoWindow
         
