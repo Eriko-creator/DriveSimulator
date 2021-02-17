@@ -53,7 +53,7 @@ final class SetAddressFromMapModel {
             guard let result = response?.firstResult(), let address = result.lines?.first else {return}
             let info = Info(name: address)
             info.setInfo(infoWindow: point.infoWindow)
-            setMarker(point: point)
+            setMarker(point: point, opacity: 1)
         }
     }
     
@@ -80,14 +80,14 @@ final class SetAddressFromMapModel {
                 if result.photos == nil{
                     let noImageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "")
                     noImageInfo.setInfo(infoWindow: point.infoWindow)
-                    setMarker(point: point)
+                    setMarker(point: point, opacity: 0)
                 //画像がある場合
                 }else if let photos = result.photos?.first{
                     placesClient.loadPlacePhoto(photos, constrainedTo: CGSize(width: 284, height: 132), scale: 1.0) { (image, error) in
                         if let image = image{
                             let imageInfo = Info(name: result.name ?? "", address: result.formattedAddress ?? "", image: image)
                             imageInfo.setInfo(infoWindow: point.infoWindow)
-                            setMarker(point: point)
+                            setMarker(point: point, opacity: 0)
                         }
                     }
                 }
@@ -97,10 +97,10 @@ final class SetAddressFromMapModel {
         }
     }
     
-    private func setMarker(point:Point){
+    private func setMarker(point:Point, opacity: Float){
         //POIにInfoWindowを表示
         point.marker.position = point.coordinate
-        point.marker.opacity = 1.0
+        point.marker.opacity = opacity
         point.marker.map = point.mapView
         point.mapView.selectedMarker = point.marker
         //POIを中心にしてカメラを移動させる
