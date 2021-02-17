@@ -21,8 +21,9 @@
 		343B963325D81AAC00EA4C9E /* HistoryEmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343B963225D81AAC00EA4C9E /* HistoryEmptyTableView.swift */; };
 		343CE35125D2D24A00838F54 /* FavoriteTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CE35025D2D24A00838F54 /* FavoriteTableViewDataSource.swift */; };
 		343CE35F25D3011500838F54 /* SelectAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CE35E25D3011500838F54 /* SelectAddressViewModel.swift */; };
+		343FD0BB25DADEFC002A8DBE /* AlertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343FD0BA25DADEFC002A8DBE /* AlertLabel.swift */; };
 		345ABB8525D11DF200A37CED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8425D11DF200A37CED /* Button.swift */; };
-		345ABB8A25D11DFE00A37CED /* PlaceNameActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */; };
+		345ABB8A25D11DFE00A37CED /* PlaceActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8925D11DFE00A37CED /* PlaceActionModel.swift */; };
 		345ABB8F25D11E0700A37CED /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB8E25D11E0700A37CED /* Realm.swift */; };
 		345ABB9425D11E1100A37CED /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABB9325D11E1100A37CED /* Action.swift */; };
 		345ABBBB25D1243000A37CED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBBA25D1243000A37CED /* PageViewController.swift */; };
@@ -99,9 +100,10 @@
 		343B963225D81AAC00EA4C9E /* HistoryEmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyTableView.swift; sourceTree = "<group>"; };
 		343CE35025D2D24A00838F54 /* FavoriteTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewDataSource.swift; sourceTree = "<group>"; };
 		343CE35E25D3011500838F54 /* SelectAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewModel.swift; sourceTree = "<group>"; };
+		343FD0BA25DADEFC002A8DBE /* AlertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertLabel.swift; sourceTree = "<group>"; };
 		344DC45E12A35E6812A2E247 /* Pods_DriveSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345ABB8425D11DF200A37CED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = DriveSimulator/Model/Common/Button.swift; sourceTree = SOURCE_ROOT; };
-		345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceNameActionModel.swift; path = DriveSimulator/Model/Common/PlaceNameActionModel.swift; sourceTree = SOURCE_ROOT; };
+		345ABB8925D11DFE00A37CED /* PlaceActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceActionModel.swift; path = DriveSimulator/Model/Common/PlaceActionModel.swift; sourceTree = SOURCE_ROOT; };
 		345ABB8E25D11E0700A37CED /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Realm.swift; path = DriveSimulator/Model/Common/Realm.swift; sourceTree = SOURCE_ROOT; };
 		345ABB9325D11E1100A37CED /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DriveSimulator/Model/Common/Action.swift; sourceTree = SOURCE_ROOT; };
 		345ABBBA25D1243000A37CED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -336,8 +338,8 @@
 				34B2ED0725BF2801000682B7 /* SearchModel.swift */,
 				34B2ED0C25BF280D000682B7 /* SetAddressFromMapModel.swift */,
 				343CE35E25D3011500838F54 /* SelectAddressViewModel.swift */,
-				34B2ECF125BF279D000682B7 /* Common */,
 				343B95C825D415DE00EA4C9E /* SavePointModel.swift */,
+				34B2ECF125BF279D000682B7 /* Common */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,9 +381,10 @@
 				34B2ECFD25BF27D0000682B7 /* GoogleMapAPI.swift */,
 				34B2ED0225BF27D7000682B7 /* MapSettings.swift */,
 				345ABB8425D11DF200A37CED /* Button.swift */,
-				345ABB8925D11DFE00A37CED /* PlaceNameActionModel.swift */,
+				345ABB8925D11DFE00A37CED /* PlaceActionModel.swift */,
 				345ABB8E25D11E0700A37CED /* Realm.swift */,
 				345ABB9325D11E1100A37CED /* Action.swift */,
+				343FD0BA25DADEFC002A8DBE /* AlertLabel.swift */,
 				34B2ECF225BF27A9000682B7 /* JsonExport */,
 			);
 			path = Common;
@@ -722,6 +725,7 @@
 				34B2ED1525BF2822000682B7 /* SetAddressFromMapViewController.swift in Sources */,
 				34B2EC6F25BF22A9000682B7 /* ViewController.swift in Sources */,
 				34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */,
+				343FD0BB25DADEFC002A8DBE /* AlertLabel.swift in Sources */,
 				345ABB8525D11DF200A37CED /* Button.swift in Sources */,
 				34B2ED0325BF27D7000682B7 /* MapSettings.swift in Sources */,
 				34B2ED3725BFF379000682B7 /* SetAddressViewController.swift in Sources */,
@@ -744,7 +748,7 @@
 				34B2ECFE25BF27D0000682B7 /* GoogleMapAPI.swift in Sources */,
 				34B2ECF425BF27BD000682B7 /* Geometry.swift in Sources */,
 				34B2ECAC25BF23D3000682B7 /* KeyManager.swift in Sources */,
-				345ABB8A25D11DFE00A37CED /* PlaceNameActionModel.swift in Sources */,
+				345ABB8A25D11DFE00A37CED /* PlaceActionModel.swift in Sources */,
 				343B95D425D423C600EA4C9E /* MyLocationView.swift in Sources */,
 				3466240F25D99CCE00738F69 /* TabBarController.swift in Sources */,
 				343CE35F25D3011500838F54 /* SelectAddressViewModel.swift in Sources */,

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavePointView" customModule="DriveSimulator" customModuleProvider="target">
+            <connections>
+                <outlet property="addressLabel" destination="IcJ-gI-aux" id="4Tv-qv-utw"/>
+                <outlet property="placeNameTextField" destination="Cdn-If-n36" id="TJc-ZL-AKh"/>
+                <outlet property="savePointButton" destination="Vpy-FX-CN6" id="2AU-Lr-gK3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="azo-6M-EZl">
+                    <rect key="frame" x="20" y="310.5" width="374" height="175"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IcJ-gI-aux">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録地点名を新たに設定できます。 例：自宅、職場、学校など" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MZ-4Q-i9b">
+                            <rect key="frame" x="0.0" y="50" width="374" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-Z1-bf1">
+                            <rect key="frame" x="0.0" y="141" width="374" height="34"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwE-9f-kLM">
+                                    <rect key="frame" x="0.0" y="0.0" width="52" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="登録する地点名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cdn-If-n36">
+                                    <rect key="frame" x="60" y="0.0" width="314" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpy-FX-CN6" customClass="Button" customModule="DriveSimulator" customModuleProvider="target">
+                    <rect key="frame" x="148.5" y="515.5" width="117" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="地点を登録"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="azo-6M-EZl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="8aP-iq-xx7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="azo-6M-EZl" secondAttribute="trailing" constant="20" id="IQk-iN-faa"/>
+                <constraint firstItem="Vpy-FX-CN6" firstAttribute="top" secondItem="azo-6M-EZl" secondAttribute="bottom" constant="30" id="IsU-F7-2vE"/>
+                <constraint firstItem="azo-6M-EZl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="RZh-FM-c7o"/>
+                <constraint firstItem="Vpy-FX-CN6" firstAttribute="centerX" secondItem="azo-6M-EZl" secondAttribute="centerX" id="qEq-kv-52Z"/>
+            </constraints>
+            <point key="canvasLocation" x="53.623188405797109" y="53.571428571428569"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="Vpy-FX-CN6">
+            <size key="intrinsicContentSize" width="117" height="41"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

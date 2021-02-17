@@ -57,7 +57,7 @@ class PlaceAction{
             //保存するデータを作成
             let dictionary:[String:Any] =
                 ["placeName": placeName,
-                 "location": [["lat": lat,"lng": lng]]]
+                 "location": ["lat": lat,"lng": lng]]
                 
                 switch realmDataBase{
                 case .history:
