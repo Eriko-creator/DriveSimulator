@@ -12,7 +12,9 @@
         <scene sceneID="l26-IY-Vj4">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="setAddress" storyboardName="SetAddress" referencedIdentifier="setAddress" id="bfU-S5-4Eg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="shA-ar-egD"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="shA-ar-egD">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="3nr-dK-EKA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHZ-7n-Dfj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -28,6 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.29411764705882354" green="0.5725490196078431" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="79M-Co-dZC" kind="relationship" relationship="viewControllers" id="bj5-mJ-oVM"/>
@@ -38,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="141" y="-528"/>
         </scene>
-        <!--Item-->
+        <!--Drive Simulator-->
         <scene sceneID="VGo-Pf-BEd">
             <objects>
                 <viewController id="79M-Co-dZC" customClass="SearchViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,8 +52,8 @@
                         <viewLayoutGuide key="safeArea" id="zHa-7s-3Qw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="XDF-Bs-Z95"/>
-                    <navigationItem key="navigationItem" id="0dA-mV-Hzz"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="XDF-Bs-Z95"/>
+                    <navigationItem key="navigationItem" title="Drive Simulator" id="0dA-mV-Hzz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgx-g4-Cht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,11 +63,18 @@
         <scene sceneID="qr8-jp-oHn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NFP-Re-9Xh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Item 1" id="iVa-U8-6yf"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Item 1" id="iVa-U8-6yf">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CL4-gC-Db1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.29411764709999999" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

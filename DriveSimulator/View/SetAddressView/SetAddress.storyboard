@@ -42,7 +42,6 @@
                     <connections>
                         <outlet property="containerView" destination="DkP-AO-voG" id="zvF-BW-MPb"/>
                         <outlet property="searchBar" destination="QgB-hQ-gaF" id="b9d-io-3Ln"/>
-                        <segue destination="xkY-vz-bSh" kind="show" identifier="" id="0Bw-Up-enw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSJ-Xc-Gdj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
