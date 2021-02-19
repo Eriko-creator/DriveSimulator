@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerView" customModule="DriveSimulator" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="MPX-97-ua9" id="TvR-c1-3Dy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="314" height="219"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-97-ua9">
+                    <rect key="frame" x="0.0" y="43" width="314" height="176"/>
+                    <locale key="locale" localeIdentifier="ja_JP"/>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yc-bs-rcS">
+                    <rect key="frame" x="20" y="10" width="17.5" height="33"/>
+                    <state key="normal" image="xmark" catalog="system"/>
+                    <connections>
+                        <action selector="cancelButton:" destination="-1" eventType="touchUpInside" id="Xkn-qK-CTJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jy-xq-g35">
+                    <rect key="frame" x="57.5" y="10" width="70" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="現在時刻"/>
+                    <connections>
+                        <action selector="currentTimeButton:" destination="-1" eventType="touchUpInside" id="rAs-AJ-EFC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSJ-eW-fIs">
+                    <rect key="frame" x="259" y="10" width="35" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="決定"/>
+                    <connections>
+                        <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="78S-3b-UJQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4Jy-xq-g35" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="GqW-FO-G3o"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="top" secondItem="2Yc-bs-rcS" secondAttribute="bottom" id="Hvk-Mb-xpl"/>
+                <constraint firstItem="4Jy-xq-g35" firstAttribute="leading" secondItem="2Yc-bs-rcS" secondAttribute="trailing" constant="20" id="V53-8B-BMz"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ZbB-ro-gkb"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="top" secondItem="4Jy-xq-g35" secondAttribute="bottom" id="ap8-Hp-KiE"/>
+                <constraint firstItem="2Yc-bs-rcS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="eKI-bi-6s3"/>
+                <constraint firstItem="CSJ-eW-fIs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="jPl-4d-zXE"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="top" secondItem="CSJ-eW-fIs" secondAttribute="bottom" id="m9U-on-blN"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ozL-yR-bBi"/>
+                <constraint firstAttribute="trailing" secondItem="CSJ-eW-fIs" secondAttribute="trailing" constant="20" id="pxa-lk-dkw"/>
+                <constraint firstItem="MPX-97-ua9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wMD-IJ-5jx"/>
+                <constraint firstItem="2Yc-bs-rcS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="x4p-Yu-DIF"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-107.24637681159422" y="220.64732142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         myView.delegate = self
+        myView.searchButton.isEnabled = true
        
     }
     
@@ -29,20 +30,6 @@ class SearchViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    private func getPlaceName(){
-        
-        NotificationCenter.default.addObserver(forName: .selectedStartPlace, object: nil, queue: nil) { (notification) in
-            guard let startPlace = notification.userInfo?["selectedStartPlace"] as? Place else {return}
-            self.myView.textLabel[0].text = startPlace.placeName
-        }
-        
-        NotificationCenter.default.addObserver(forName: .selectedGoalPlace, object: nil, queue: nil) { (notification) in
-            guard let goalPlace = notification.userInfo?["selectedGoalPlace"] as? Place else {return}
-            self.myView.textLabel[1].text = goalPlace.placeName
-        }
-        
     }
 }
 
@@ -69,4 +56,15 @@ extension SearchViewController: SearchViewDelegate{
         
         present(VC, animated: true, completion: nil)
     }
+    
+    func presentDatePicker() {
+        let datePickerView = DatePickerView()
+        datePickerView.frame = CGRect(x: 10, y: myView.frame.maxY, width: myView.bounds.width-20, height: 30+datePickerView.datePicker.frame.height)
+        UIView.animate(withDuration: 0.3) { [unowned self] in
+            guard let tabHeight = tabBarController?.tabBar.frame.height else {return}
+            datePickerView.frame.origin.y = myView.frame.height-tabHeight-datePickerView.frame.height-10
+        }
+        myView.addSubview(datePickerView)
+    }
+    
 }
