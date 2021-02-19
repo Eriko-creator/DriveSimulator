@@ -15,6 +15,7 @@ enum Action{
         
         case start = 1
         case goal = 2
+        case via = 3
         
         var text: String{
             switch self {
@@ -22,6 +23,8 @@ enum Action{
                 return "出発地"
             case .goal:
                 return "到着地"
+            case .via:
+                return "経由地"
             }
         }
     }

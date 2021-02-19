@@ -31,7 +31,7 @@ class PlaceAction{
     }
     
     //エラー 地名を取得できませんでした
-    func setPlaceName(completion: ()->Void){
+    public func setPlaceName(completion: ()->Void){
         
         switch action{
         case .select(let state):
@@ -42,6 +42,9 @@ class PlaceAction{
                 completion()
             case .goal:
                 NotificationCenter.default.post(name: .selectedGoalPlace, object: nil, userInfo: ["selectedGoalPlace": place])
+                completion()
+            case .via:
+                NotificationCenter.default.post(name: .selectedViaPlace, object: nil, userInfo: ["selectedViaPlace": place])
                 completion()
             }
         case .save:
@@ -89,5 +92,5 @@ extension Notification.Name{
     
     static let selectedStartPlace = Notification.Name("selectedStartPlace")
     static let selectedGoalPlace = Notification.Name("selectedGoalPlace")
-
+    static let selectedViaPlace = Notification.Name("selectedViaPlace")
 }
