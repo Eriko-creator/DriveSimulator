@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="141" y="-528"/>
         </scene>
-        <!--Drive Simulator-->
+        <!--Search View Controller-->
         <scene sceneID="VGo-Pf-BEd">
             <objects>
                 <viewController id="79M-Co-dZC" customClass="SearchViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,11 +53,41 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="XDF-Bs-Z95"/>
-                    <navigationItem key="navigationItem" title="Drive Simulator" id="0dA-mV-Hzz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgx-g4-Cht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="-923"/>
+        </scene>
+        <!--Search Result Map View Controller-->
+        <scene sceneID="Lw0-hE-jqU">
+            <objects>
+                <viewController storyboardIdentifier="searchResultMap" id="v8P-WD-S2M" customClass="SearchResultMapViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Y6-od-C2S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zzc-2B-BHJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="51y-NI-7vN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAk-Lg-AtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-923"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="W74-fy-5zv">
+            <objects>
+                <viewController storyboardIdentifier="searchResult" id="Zob-NN-8jk" customClass="SearchResultViewController" customModule="DriveSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2cn-T4-CHR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iny-CG-T5x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSw-v2-qGb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="-923"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="qr8-jp-oHn">

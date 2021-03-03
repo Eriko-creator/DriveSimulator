@@ -53,8 +53,10 @@ extension SearchViewController: SearchViewDelegate{
     }
     
     func presentDatePicker() {
+        
         let datePickerView = DatePickerView()
         datePickerView.frame = CGRect(x: 10, y: myView.frame.maxY, width: myView.bounds.width-20, height: 30+datePickerView.datePicker.frame.height)
+        
         UIView.animate(withDuration: 0.3) { [unowned self] in
             guard let tabHeight = tabBarController?.tabBar.frame.height else {return}
             datePickerView.frame.origin.y = myView.frame.height-tabHeight-datePickerView.frame.height-10
@@ -62,4 +64,10 @@ extension SearchViewController: SearchViewDelegate{
         myView.addSubview(datePickerView)
     }
     
+    func presentSearchResult() {
+        
+        guard let searchResultVC = self.storyboard?.instantiateViewController(withIdentifier: "searchResultMap") as? NavitimeSearchResultMapViewController else {return}
+        self.navigationController?.pushViewController(searchResultVC, animated: true)
+        
+    }
 }

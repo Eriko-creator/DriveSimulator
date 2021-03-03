@@ -12,6 +12,7 @@ protocol SearchViewDelegate {
     func presentSetAddressFromMapView(tag: Int)
     func presentSetAddressView(tag:Int)
     func presentDatePicker()
+    func presentSearchResult()
 }
 
 class SearchView: XibView{
@@ -20,7 +21,7 @@ class SearchView: XibView{
     
     override func didAddSubview(_ subview: UIView) {
         //地点名の通知を受け取る
-        //出発地名を受け取ったらボタンのタイトルに反映
+        //出発地名を受け取ったらボタンのタイトルに反映、クエリに追加
         NotificationCenter.default.addObserver(forName: .selectedStartPlace, object: nil, queue: nil) { [unowned self] (notification) in
             guard let startPlace = notification.userInfo?["selectedStartPlace"] as? Place else {return}
             selectStartPlaceButton.setTitle(startPlace.placeName, for: .normal)
@@ -73,6 +74,7 @@ class SearchView: XibView{
         selectGoalPlaceFromMapButton.addTarget(self, action: #selector(presentSelectPlaceFromMapVC(_:)), for: .touchUpInside)
         reversePlaceNameButton.addTarget(self, action: #selector(reversePlaceName), for: .touchUpInside)
         setDateButton.addTarget(self, action: #selector(presentDatePicker), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(showSearchResult), for: .touchUpInside)
     }
     
     @objc func presentSelectPlaceVC(_ sender: Any){
@@ -93,6 +95,12 @@ class SearchView: XibView{
     
     @objc func presentDatePicker(){
         delegate?.presentDatePicker()
+    }
+    
+    @objc func showSearchResult(){
+        let model = SearchModel()
+        model.setSearchQuery(stateSegment: stateSegmentedControl.selectedSegmentIndex, carTypeSegment: carTypeSegmentedControl.selectedSegmentIndex)
+        delegate?.presentSearchResult()
     }
     
     required init?(coder aDecoder: NSCoder) {

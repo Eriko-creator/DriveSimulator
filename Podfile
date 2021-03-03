@@ -11,6 +11,8 @@ pod 'GooglePlaces'
 pod 'Alamofire'
 pod 'RealmSwift'
 pod 'DZNEmptyDataSet'
+pod 'SegementSlide'
+pod 'FloatingPanel'
 
 
   target 'DriveSimulatorTests' do
