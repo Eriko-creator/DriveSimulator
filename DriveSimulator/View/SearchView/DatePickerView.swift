@@ -24,13 +24,12 @@ class DatePickerView: XibView{
     @IBAction func doneButton(_ sender: Any) {
         //SearchVCに日付を渡す
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy年M月d日(E)HH時mm分"
-        let date = dateFormatter.string(from: datePicker.date)
+        let date = dateFormatter.dateFormatForLabel(date: datePicker.date)
         print(date)
         NotificationCenter.default.post(name: .selectedDate, object: nil, userInfo: ["selectedDate": date])
+        //クエリに日付を追加
+        let searchQueryMaker = SearchQueryMaker.shared
+        searchQueryMaker.date = dateFormatter.dateFormatForQuery(date: datePicker.date)
         removeFromSuperview()
     }
 }
