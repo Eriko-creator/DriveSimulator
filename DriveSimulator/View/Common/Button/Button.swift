@@ -29,7 +29,12 @@ import UIKit
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 17)
         contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+        titleLabel?.minimumScaleFactor = 10.0
         layer.cornerRadius = 15.0
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowRadius = 1
+        layer.shadowOpacity = 0.5
         
     }
     

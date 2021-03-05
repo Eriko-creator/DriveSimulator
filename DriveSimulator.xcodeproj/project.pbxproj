@@ -37,9 +37,10 @@
 		345ABBFB25D16FBF00A37CED /* MyLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345ABBFA25D16FBF00A37CED /* MyLocationModel.swift */; };
 		346614C225EF9D5C00C5E4CB /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346614C125EF9D5C00C5E4CB /* SearchResultViewController.swift */; };
 		346614C725EF9E3200C5E4CB /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346614C625EF9E3200C5E4CB /* ContentViewController.swift */; };
-		346614CC25EFA19E00C5E4CB /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346614CB25EFA19E00C5E4CB /* Directions.swift */; };
-		346614DB25EFD17800C5E4CB /* RouteResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346614DA25EFD17800C5E4CB /* RouteResultView.xib */; };
-		346614E025EFD44900C5E4CB /* RouteResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346614DF25EFD44900C5E4CB /* RouteResultView.swift */; };
+		346614F925EFFCFA00C5E4CB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346614F825EFFCFA00C5E4CB /* UIImage.swift */; };
+		3466150D25F0CFA800C5E4CB /* MyLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3466150C25F0CFA700C5E4CB /* MyLocationButton.swift */; };
+		3466151225F0DC5D00C5E4CB /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3466151125F0DC5D00C5E4CB /* SettingButton.swift */; };
+		3466151E25F1286400C5E4CB /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3466151D25F1286400C5E4CB /* DismissButton.swift */; };
 		3466240F25D99CCE00738F69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3466240E25D99CCE00738F69 /* TabBarController.swift */; };
 		34B2EC6B25BF22A9000682B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */; };
 		34B2EC6D25BF22A9000682B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2EC6C25BF22A9000682B7 /* SceneDelegate.swift */; };
@@ -127,7 +128,7 @@
 		343CE35E25D3011500838F54 /* SelectAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewModel.swift; sourceTree = "<group>"; };
 		343FD0BA25DADEFC002A8DBE /* AlertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertLabel.swift; sourceTree = "<group>"; };
 		344DC45E12A35E6812A2E247 /* Pods_DriveSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		345ABB8425D11DF200A37CED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = DriveSimulator/View/Common/Button.swift; sourceTree = SOURCE_ROOT; };
+		345ABB8425D11DF200A37CED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = DriveSimulator/View/Common/Button/Button.swift; sourceTree = SOURCE_ROOT; };
 		345ABB8925D11DFE00A37CED /* PlaceActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceActionModel.swift; path = DriveSimulator/Model/Common/PlaceActionModel.swift; sourceTree = SOURCE_ROOT; };
 		345ABB8E25D11E0700A37CED /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Realm.swift; path = DriveSimulator/Model/Common/Realm.swift; sourceTree = SOURCE_ROOT; };
 		345ABB9325D11E1100A37CED /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DriveSimulator/Model/Common/Action.swift; sourceTree = SOURCE_ROOT; };
@@ -142,9 +143,10 @@
 		345ABBFA25D16FBF00A37CED /* MyLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationModel.swift; sourceTree = "<group>"; };
 		346614C125EF9D5C00C5E4CB /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		346614C625EF9E3200C5E4CB /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		346614CB25EFA19E00C5E4CB /* Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
-		346614DA25EFD17800C5E4CB /* RouteResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteResultView.xib; sourceTree = "<group>"; };
-		346614DF25EFD44900C5E4CB /* RouteResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteResultView.swift; sourceTree = "<group>"; };
+		346614F825EFFCFA00C5E4CB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3466150C25F0CFA700C5E4CB /* MyLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationButton.swift; sourceTree = "<group>"; };
+		3466151125F0DC5D00C5E4CB /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		3466151D25F1286400C5E4CB /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		3466240E25D99CCE00738F69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		34B2EC6725BF22A9000682B7 /* DriveSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B2EC6A25BF22A9000682B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -323,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				34B2ECF325BF27BD000682B7 /* Geometry.swift */,
-				346614CB25EFA19E00C5E4CB /* Directions.swift */,
 			);
 			path = GoogleMapAPI;
 			sourceTree = "<group>";
@@ -337,13 +338,15 @@
 			path = GoogleMapAPI;
 			sourceTree = "<group>";
 		};
-		346614D925EFD14200C5E4CB /* SearchResultView */ = {
+		3466151925F0EFD900C5E4CB /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				346614DA25EFD17800C5E4CB /* RouteResultView.xib */,
-				346614DF25EFD44900C5E4CB /* RouteResultView.swift */,
+				345ABB8425D11DF200A37CED /* Button.swift */,
+				3466151125F0DC5D00C5E4CB /* SettingButton.swift */,
+				3466150C25F0CFA700C5E4CB /* MyLocationButton.swift */,
+				3466151D25F1286400C5E4CB /* DismissButton.swift */,
 			);
-			path = SearchResultView;
+			path = Button;
 			sourceTree = "<group>";
 		};
 		34B2EC5E25BF22A9000682B7 = {
@@ -413,7 +416,6 @@
 				34B2ECE625BF270E000682B7 /* SetAddressView */,
 				343CE35525D2EA7800838F54 /* SavePointView */,
 				34E0221B25DECB5900D63A73 /* NavitimeSearchResultView */,
-				346614D925EFD14200C5E4CB /* SearchResultView */,
 				34E022C025EA795C00D63A73 /* SearchResultMapView */,
 				34E021FE25DEC53100D63A73 /* Common */,
 			);
@@ -491,6 +493,7 @@
 				345ABB8E25D11E0700A37CED /* Realm.swift */,
 				345ABB9325D11E1100A37CED /* Action.swift */,
 				34E022B825E54CC300D63A73 /* DateFormatter.swift */,
+				346614F825EFFCFA00C5E4CB /* UIImage.swift */,
 				34E0225B25E1456F00D63A73 /* API */,
 			);
 			path = Common;
@@ -528,9 +531,9 @@
 		34E021FE25DEC53100D63A73 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3466151925F0EFD900C5E4CB /* Button */,
 				34E021E625DE4EC800D63A73 /* IBDesignable.swift */,
 				34B2ECCB25BF25F3000682B7 /* XibView.swift */,
-				345ABB8425D11DF200A37CED /* Button.swift */,
 				343FD0BA25DADEFC002A8DBE /* AlertLabel.swift */,
 			);
 			path = Common;
@@ -732,7 +735,6 @@
 				34E0221D25DECB7600D63A73 /* SearchResultView.xib in Resources */,
 				34B2ED6225C12999000682B7 /* SetAddress.storyboard in Resources */,
 				34B2ECED25BF272F000682B7 /* SetAddressFromMapView.xib in Resources */,
-				346614DB25EFD17800C5E4CB /* RouteResultView.xib in Resources */,
 				34B2ECD125BF2687000682B7 /* SearchView.xib in Resources */,
 				345ABBE925D137C100A37CED /* Cell.xib in Resources */,
 				34B2ECA725BF2379000682B7 /* APIKey.plist in Resources */,
@@ -923,27 +925,28 @@
 				343B95E125D42A6C00EA4C9E /* FavoriteTableView.swift in Sources */,
 				345ABBE125D1321900A37CED /* HistoryTableViewDataSource.swift in Sources */,
 				345ABBC325D1244000A37CED /* HistoryTableViewController.swift in Sources */,
+				346614F925EFFCFA00C5E4CB /* UIImage.swift in Sources */,
 				34E0224825E0246F00D63A73 /* SearchQueryMaker.swift in Sources */,
 				345ABBCD25D1245900A37CED /* FavoriteTableViewController.swift in Sources */,
 				34B2ECCC25BF25F3000682B7 /* XibView.swift in Sources */,
 				34B2ECDD25BF26F4000682B7 /* InfoWindowView.swift in Sources */,
 				343B963325D81AAC00EA4C9E /* HistoryEmptyTableView.swift in Sources */,
 				34E022B925E54CC300D63A73 /* DateFormatter.swift in Sources */,
+				3466151225F0DC5D00C5E4CB /* SettingButton.swift in Sources */,
 				34E0223F25DFF1D100D63A73 /* Direction.swift in Sources */,
 				34E0221225DECADD00D63A73 /* NavitimeSearchResultViewController.swift in Sources */,
 				345ABBF625D1399700A37CED /* Cell.swift in Sources */,
 				34E0225225E12F2F00D63A73 /* APIConfigure.swift in Sources */,
 				343B95C925D415DE00EA4C9E /* SavePointModel.swift in Sources */,
 				34E0228B25E26A3D00D63A73 /* NavitimeContentViewController.swift in Sources */,
-				346614CC25EFA19E00C5E4CB /* Directions.swift in Sources */,
 				345ABB9425D11E1100A37CED /* Action.swift in Sources */,
 				345ABBC825D1244D00A37CED /* MyLocationViewController.swift in Sources */,
 				34B2ECE825BF2722000682B7 /* SetAddressFromMapView.swift in Sources */,
 				34B2ECD625BF269E000682B7 /* SearchView.swift in Sources */,
 				34B2ED0D25BF280D000682B7 /* SetAddressFromMapModel.swift in Sources */,
 				34E021DF25DD614000D63A73 /* ViaPlaceLabel.swift in Sources */,
-				346614E025EFD44900C5E4CB /* RouteResultView.swift in Sources */,
 				34B2ECFE25BF27D0000682B7 /* GoogleMapAPI.swift in Sources */,
+				3466151E25F1286400C5E4CB /* DismissButton.swift in Sources */,
 				346614C725EF9E3200C5E4CB /* ContentViewController.swift in Sources */,
 				34E021E725DE4EC800D63A73 /* IBDesignable.swift in Sources */,
 				34B2ECF425BF27BD000682B7 /* Geometry.swift in Sources */,
@@ -958,6 +961,7 @@
 				345ABBD325D1247C00A37CED /* PageViewModel.swift in Sources */,
 				34E0221725DECB0D00D63A73 /* SearchResultModel.swift in Sources */,
 				34B2ED6725C12BA5000682B7 /* AutoCompleteViewController.swift in Sources */,
+				3466150D25F0CFA800C5E4CB /* MyLocationButton.swift in Sources */,
 				345ABBFB25D16FBF00A37CED /* MyLocationModel.swift in Sources */,
 				34E022CA25EA80D900D63A73 /* SearchResultMapView.swift in Sources */,
 				343CE35125D2D24A00838F54 /* FavoriteTableViewDataSource.swift in Sources */,
@@ -1068,7 +1072,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1123,7 +1127,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
