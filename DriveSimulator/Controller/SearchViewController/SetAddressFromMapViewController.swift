@@ -32,9 +32,6 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
         model.delegate = self
         //現在地を取得する
         MapSettings.requestLocation()
-        //instructionLabelを設定する
-        myView.instructionLabel.text = placeAction.action.labelText
-        myView.instructionLabel.isHidden = placeAction.action.isFavoriteVCPresented
         
     }
     
@@ -46,7 +43,7 @@ class SetAddressFromMapViewController: UIViewController, UISearchBarDelegate{
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         //入力された地点を表示する
-        model.moveToPlace(name: myView.searchBar.text!, mapView: myView.mapView)
+        model.moveToPlace(name: myView.searchBar?.text ?? "", mapView: myView.mapView)
     }
 }
     
@@ -54,25 +51,36 @@ extension SetAddressFromMapViewController: GMSMapViewDelegate {
     
     //POI地点をタップした時
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
-        //POI上にInfoWindowを表示
-        let POIMarker = GMSMarker()
-        let point = SetAddressFromMapModel.Point(marker: POIMarker, mapView: mapView, coordinate: location, placeID: placeID, infoWindow: infoWindow)
-        model.showPOIinfoWindow(point: point)
         
+        model.closeKeyboard(searchBar: myView.searchBar) {
+            //POI上にInfoWindowを表示
+            let POIMarker = GMSMarker()
+            let point = SetAddressFromMapModel.Point(marker: POIMarker, mapView: mapView, coordinate: location, placeID: placeID, infoWindow: infoWindow)
+            model.showPOIinfoWindow(point: point)
+        }
     }
     //地図上をタップした時
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //タップした場所にマーカーを表示
-        let marker = GMSMarker()
-        let point = SetAddressFromMapModel.Point(marker: marker, mapView: mapView, coordinate: coordinate, placeID: nil, infoWindow: infoWindow)
-        model.setMarkerOnMap(point: point)
+        
+        model.closeKeyboard(searchBar: myView.searchBar) {
+            //タップした場所にマーカーを表示
+            let marker = MapSettings.makeMarker(type: .standard)
+            let point = SetAddressFromMapModel.Point(marker: marker, mapView: mapView, coordinate: coordinate, placeID: nil, infoWindow: infoWindow)
+            model.setMarkerOnMap(point: point)
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        myView.myLocationButton.isEnabled = true
     }
     
     //infoWindowをタップした時
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        //アラートを表示
-        let alert = model.showAlert(infoWindow: infoWindow, coordinate: marker.position)
-        present(alert, animated: true, completion: nil)
+        model.closeKeyboard(searchBar: myView.searchBar) {
+            //アラートを表示
+            let alert = model.showAlert(infoWindow: infoWindow, coordinate: marker.position)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     //InfoWindowにCustomViewを設定する
@@ -101,10 +109,9 @@ extension SetAddressFromMapViewController: SetAddressFromMapViewDelegate{
             }
         case .save:
             //地点を登録する時→画面遷移
-            guard let parentVC = self.parent as? PageViewController,
-                  let savePointVC = self.storyboard?.instantiateViewController(withIdentifier: "savePoint")
+            guard let savePointVC = self.storyboard?.instantiateViewController(withIdentifier: "savePoint") as? SavePointViewController
             else {return}
-            parentVC.navigationController?.pushViewController(savePointVC, animated: true)
+            navigationController?.pushViewController(savePointVC, animated: true)
         }
     }
 }

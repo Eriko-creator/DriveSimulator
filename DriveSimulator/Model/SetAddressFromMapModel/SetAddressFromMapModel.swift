@@ -46,7 +46,16 @@ final class SetAddressFromMapModel {
         print("setfromMapModel解放")
     }
     
+    func closeKeyboard(searchBar: UISearchBar, completion: ()->Void){
+        if searchBar.isFirstResponder{
+            searchBar.resignFirstResponder()
+        }else{
+            completion()
+        }
+    }
+    
     func setMarkerOnMap(point:Point){
+        point.mapView.clear()
         //緯度経度から住所を取得してinfoWindowに表示する
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(point.coordinate) { [unowned self] (response, error) in
@@ -59,6 +68,7 @@ final class SetAddressFromMapModel {
     
     func moveToPlace(name:String, mapView:GMSMapView){
         
+        mapView.clear()
         googleMapAPI.getGeometry(address: name) {(geometry) in
             if let geometry = geometry{
                 guard let results = geometry.results.first else {return}

@@ -49,9 +49,9 @@ enum Action{
     var labelText: String{
         switch self{
         case .select(let state):
-            return "\(state.text)を選択してください。"
+            return "\(state.text)を選択してください"
         case .save:
-            return "登録地点を設定します。"
+            return "登録地点を設定します"
         }
     }
     
