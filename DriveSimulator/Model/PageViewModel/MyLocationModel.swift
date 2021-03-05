@@ -8,9 +8,9 @@
 import Foundation
 import GoogleMaps
 
-class MyLocationModel: NSObject{
+class MyLocationModel{
     
-    override init(){
+    init(){
         print("myLocationModel生成")
     }
     deinit {

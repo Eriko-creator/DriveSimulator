@@ -91,18 +91,3 @@ class MyNavitimeSegementSlideVC: SegementSlideDefaultViewController{
         }
     }
 }
-
-extension SegementSlideContentView{
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        print(offsetY)
-        //topにいる時に下に引っ張るとfloatingPanelを.halfの状態にする
-        if offsetY<0{
-            print("Y<0")
-        //Halfの状態で上にスクロールするとfloatingPanelを.fullの状態にする
-        }else if offsetY>0{
-            print("Y>0")
-        }
-    }
-}
